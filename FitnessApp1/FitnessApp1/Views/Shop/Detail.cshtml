@@ -1,0 +1,601 @@
+﻿@model DetailsVM
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Shop Details</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/shop/index">Shop</a></li>
+            <li><span>Shop Details</span></li>
+        </ul>
+    </div>
+</section>
+<section class="sidebar-pages popular-shop-item">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right">
+                <div class="sidebar-page-content section-padding pb0">
+                    <div class="inner-page-wrapper section-padding pt0 white-bg">
+                        <div class="product-content-box clearfix">
+                            <div class="img-box">
+                                <div class="single-product-carousel-content-box owl-theme owl-carousel">
+                                    @foreach (var item in Model.Product.ProductImages)
+                                    {
+
+                                        <div class="item">
+                                            <img src="~/img/shop/@item.ImageUrl" alt="Awesome Image" />
+                                        </div>
+                                    }
+                                    <!-- /.item -->
+                                </div>
+                                <!-- /.single-product-carousel-content-box owl-theme-owl-carousel -->
+                                <div class="single-product-carousel-thumbnail-box owl-theme owl-carousel">
+                                    @foreach (var item in Model.Product.ProductImages)
+                                    {
+
+                                        <div class="item">
+                                            <img src="~/img/shop/@item.ImageUrl" alt="Awesome Image" />
+                                        </div>
+                                    }
+                                    <!-- /.item -->
+                                </div>
+                                <!-- /.single-product-carousel-thumbnail-box owl-theme owl-carousel -->
+                            </div>
+                            <div class="content-box">
+                                <h2>@Model.Product.Name </h2>
+                                <div class="review-box">
+                                    <ul class="list-inline">
+
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>(@ViewBag.Count Customers Review)</span>
+                                </div>
+                                <span class="price">
+                                    @if (Model.Product.DiscountId != null)
+                                    {
+                                        <del>$@Model.Product.Price</del>
+
+                                    }
+                                    @if (Model.Product.DiscountId != null)
+                                    {
+                                        @(Model.Product.Price * (100 - Model.Product.Discount.DiscountPercent) / 100)
+                                    }
+                                    else
+                                    {
+                                        <span>$@Model.Product.Price</span>
+
+                                    }
+                                </span>
+                                <p>Working from home meant we could vary snack and coffee breaks, change our desks or view, goof off, drink on the job, even spend the day in pajamas</p>
+                                <div class="location-box">
+
+                                    <div class="add-to-cart-box">
+                                        <input type="number" id="ival" name="quantity" min="1" value="1">
+                                        <button type="submit" class="thm-btn tocart">Add To Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-tab-box">
+                            <div class="tab-title">
+                                <ul role="tablist">
+                                    <li class="active" data-tab-name="description"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Item Details</a></li>
+                                    <li data-tab-name="review-box"><a href="#review-box" aria-controls="review-box" role="tab" data-toggle="tab">Reviews(@ViewBag.Count)</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="single-tab-content tab-pane fade in active" id="description">
+                                    <p>Easy to install, full paisa wasool , the package was good without any damage but shipping is late remaing everything is good go for it it is better than other threadmill</p>
+                                    <h3>Highlights</h3>
+                                    <ul>
+                                        <li>Training for the game of life </li>
+                                        <li>Brand: Energie Fitness </li>
+                                        <li>Type: Motorized Treadmill Display </li>
+                                        <li>Features: Distance, Program, Pulse, Speed, Calories and heart rate program </li>
+                                        <li>Speed Range: 0.5-13KM/H </li>
+                                        <li>Emergency Stop: Key </li>
+                                        <li>Foldable: Yes </li>
+                                        <li>Inclination Level: Yes (manual) Maximum User Weight: 110kg Motor </li>
+                                        <li>Power: 2 HP User/ Installation Manual: Yes </li>
+                                        <li>Warranty; 3 Months SUPC: SDL394564365</li>
+                                    </ul>
+                                </div>
+                                <style>
+                                    .rating {
+                                        display: inline-block;
+                                        position: relative;
+                                        height: 50px;
+                                        line-height: 50px;
+                                        font-size: 50px;
+                                    }
+
+                                        .rating label {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            height: 100%;
+                                            cursor: pointer;
+                                        }
+
+                                            .rating label:last-child {
+                                                position: static;
+                                            }
+
+                                            .rating label:nth-child(1) {
+                                                z-index: 5;
+                                            }
+
+                                            .rating label:nth-child(2) {
+                                                z-index: 4;
+                                            }
+
+                                            .rating label:nth-child(3) {
+                                                z-index: 3;
+                                            }
+
+                                            .rating label:nth-child(4) {
+                                                z-index: 2;
+                                            }
+
+                                            .rating label:nth-child(5) {
+                                                z-index: 1;
+                                            }
+
+                                            .rating label input {
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                opacity: 0;
+                                            }
+
+                                            .rating label .icon {
+                                                float: left;
+                                                color: transparent;
+                                            }
+
+                                            .rating label:last-child .icon {
+                                                color: #000;
+                                            }
+
+                                        .rating:not(:hover) label input:checked ~ .icon,
+                                        .rating:hover label:hover input ~ .icon {
+                                            color: #A6C311;
+                                        }
+
+                                        .rating label input:focus:not(:checked) ~ .icon:last-child {
+                                            color: #000;
+                                            text-shadow: 0 0 5px #A6C311;
+                                        }</style>
+                                <div class="single-tab-box tab-pane fade" id="review-box">
+                                    <div class="review-box">
+                                        @foreach (var cmnt in @ViewBag.Comments)
+                                        {
+
+                                            <div class="single-review-box">
+                                                <div class="img-box">
+                                                    <img src="~/img/shop/review-thumb-1.jpg" alt="Awesome Image" />
+                                                </div>
+                                                <div class="text-box">
+                                                    <div class="top-box clearfix">
+                                                        <div class="title pull-left">
+                                                            <h2>@cmnt.AppUser.FullName</h2>
+                                                        </div>
+                                                        <div class="rating-box pull-right">
+                                                            <span class="time">@cmnt.CreatedAt.ToString("MMMM dd, yyyy")</span>
+                                                            <ul class="review-star">
+                                                                @if (cmnt.Star == 1)
+                                                                {
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                }@if (cmnt.Star == 2)
+                                                                {
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                }@if (cmnt.Star == 3)
+                                                                {
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                }@if (cmnt.Star == 4)
+                                                                {
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                }
+                                                                @if (cmnt.Star == 5)
+                                                                {
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="content">
+                                                        <p> @cmnt.Message</p>
+                                                    </div>
+                                                    <div class="bottom-box">
+                                                        <ul>
+                                                            @if (cmnt.AppUser.UserName == User.Identity.Name)
+                                                            {
+                                                                <li><a asp-controller="shop" asp-action="deletecomment" asp-route-id="@cmnt.Id">Delete</a></li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="reply-box review-form-box">
+                                        <form class="rating" asp-controller="shop" asp-action="addcomment" method="post">
+                                            <label>
+                                                <input type="radio" name="Star" value="1" />
+                                                <span class="icon">★</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="Star" value="2" />
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="Star" value="3" />
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="Star" value="4" />
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="Star" value="5" />
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                                <span class="icon">★</span>
+                                            </label>
+                                            <br />
+
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+                                                <textarea name="Message" placeholder="Comments"></textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="arrow-push-out-right"><span>Submit Now <i class="fa fa-caret-right"></i></span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />  <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />  <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="related-product-box">
+                            <div class="section-title">
+                                <h1><span>Related  products</span></h1>
+                            </div>
+                            <!-- /.section-title -->
+                            <div class="related-project-carousel-2col related-product-carousel owl-theme owl-carousel">
+                                @foreach (var item in Model.RelatedProducts)
+                                {
+
+                                    <div class="item">
+                                        <div class="single-product-item text-center">
+                                            <div class="img-holder">
+                                                @foreach (var img in item.ProductImages)
+                                                {
+                                                    if (img.IsMain)
+                                                    {
+
+                                                        <img src="~/img/shop/@img.ImageUrl" alt="">
+                                                    }
+                                                }
+                                                <div class="overlay">
+                                                    <div class="icon-holder">
+                                                        <ul>
+                                                            <li><a href="single-shop.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                            <li><a href="single-shop.html"><i class="fa fa-heart"></i></a></li>
+                                                            <li><a href="single-shop.html"><i class="fa fa-search-plus"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- /.icon-holder -->
+                                                </div>
+                                                <!-- /.overlay -->
+                                            </div>
+                                            <!-- /.img-holder -->
+                                            <div class="title">
+                                                <h3>@item.Name </h3>
+
+                                                <h2>
+                                                    @if (item.DiscountId != null)
+                                                    {
+                                                        <del class="before-rate">$@item.Price</del>
+
+                                                    }
+                                                    @if (item.DiscountId != null)
+                                                    {
+                                                        @(item.Price * (100 - item.Discount.DiscountPercent) / 100)
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>$@item.Price</span>
+
+                                                    }
+
+                                                </h2>
+                                            </div>
+                                            <!-- /.title -->
+                                        </div>
+                                        <!-- /.single-product-item text-center -->
+                                    </div>
+                                    <!-- /.item -->
+                                }
+
+                            </div>
+                        </div>
+                        <!-- /.related-product-box -->
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <!-- /.inner-page-wrapper -->
+                </div>
+                <!-- /.sidebar-page-content -->
+            </div>
+            <!-- /.col-md-9 -->
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-left">
+                <div class="sidebar-wrapper section-padding">
+
+
+                    <div class="single-sidebar category-widget">
+                        <div class="title">
+                            <h3>Categories</h3>
+                        </div>
+                        <!-- /.title -->
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+
+                                <li><a href="package-v2.html">@item.Name<span>(@item.ProductCategories.Count)</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar post-widget">
+                        <div class="title">
+                            <h3>Recent Diet tips</h3>
+                        </div>
+                        <!-- /.title -->
+                        <ul class="recent-news">
+                            <li>
+                                <div class="box">
+                                    <div class="overlay">
+                                        <img src="~/img/footer/recent-news/1.jpg" alt="">
+                                        <div class="content-box">
+                                            <div class="icon-holder">
+                                                <i class="fc-icon ftc-icon-dumbbell"></i>
+                                            </div>
+                                            <div class="text">
+                                                <p>Workout News</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <a href="blog-details-sidebar.html">
+                                        <p>
+                                            7 Best shoulder exer-
+                                            <br>cised you’re not doing
+                                        </p>
+                                    </a>
+                                    <span>February 07, 2016</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="overlay">
+                                        <img src="~/img/footer/recent-news/2.jpg" alt="">
+                                        <div class="content-box">
+                                            <div class="icon-holder">
+                                                <i class="fc-icon ftc-icon-dumbbell"></i>
+                                            </div>
+                                            <div class="text">
+                                                <p>Workout News</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <a href="blog-details-sidebar.html">
+                                        <p>
+                                            8 Things You Should
+                                            <br> Never Do On Chest Day
+                                        </p>
+                                    </a>
+                                    <span>February 12, 2016</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="overlay">
+                                        <img src="~/img/footer/recent-news/3.jpg" alt="">
+                                        <div class="content-box">
+                                            <div class="icon-holder">
+                                                <i class="fc-icon ftc-icon-dumbbell"></i>
+                                            </div>
+                                            <div class="text">
+                                                <p>Workout News</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <a href="blog-details-sidebar.html">
+                                        <p>
+                                            Louis Williams Instinc-
+                                            <br>tive Back Workout
+                                        </p>
+                                    </a>
+                                    <span>February 17, 2016</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar package-slider-widget">
+                        <div class="title">
+                            <h3>packages Slider</h3>
+                        </div>
+                        <!-- /.title -->
+                        <div id="package-slider-widget-wrapper" class="carousel slide offer-going-package-menu" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+
+                                <div class="item active">
+                                    <div class="single-offer-going-pack">
+                                        <div class="img-box">
+                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
+                                            <div class="box">
+                                                <div class="overlay">
+                                                    <div class="content">
+                                                        <h4>50% Offer</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <div class="icon-box">
+                                                <div class="box">
+                                                    <i class="fc-icon ftc-icon-running"></i>
+                                                </div>
+                                            </div>
+                                            <div class="content-box">
+                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
+                                                <ul>
+                                                    <li><a href="#">06 Month Training</a></li>
+                                                    <li><a href="#">30 Min</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item ">
+                                    <div class="single-offer-going-pack">
+                                        <div class="img-box">
+                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
+                                            <div class="box">
+                                                <div class="overlay">
+                                                    <div class="content">
+                                                        <h4>50% Offer</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <div class="icon-box">
+                                                <div class="box">
+                                                    <i class="fc-icon ftc-icon-running"></i>
+                                                </div>
+                                            </div>
+                                            <div class="content-box">
+                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
+                                                <ul>
+                                                    <li><a href="#">06 Month Training</a></li>
+                                                    <li><a href="#">30 Min</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item ">
+                                    <div class="single-offer-going-pack">
+                                        <div class="img-box">
+                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
+                                            <div class="box">
+                                                <div class="overlay">
+                                                    <div class="content">
+                                                        <h4>50% Offer</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-box">
+                                            <div class="icon-box">
+                                                <div class="box">
+                                                    <i class="fc-icon ftc-icon-running"></i>
+                                                </div>
+                                            </div>
+                                            <div class="content-box">
+                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
+                                                <ul>
+                                                    <li><a href="#">06 Month Training</a></li>
+                                                    <li><a href="#">30 Min</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#package-slider-widget-wrapper" data-slide-to="0" class="active"></li>
+                                <li data-target="#package-slider-widget-wrapper" data-slide-to="1"></li>
+                                <li data-target="#package-slider-widget-wrapper" data-slide-to="2"></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar call-to-action-widget">
+                        <img src="~/img/resources/home-offerr.jpg" alt="Awesome Image" />
+                    </div>
+                    <!-- /.single-sidebar -->
+                </div>
+                <!-- /.sidebar-wrapper -->
+            </div>
+            <!-- /.col-md-3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <input type="hidden" value="@Model.Product.Id" id="proid">
+
+    <!-- /.container -->
+</section>
+<!-- /.section-padding sidebar-pages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script>
+    $(document).on("click", ".tocart", function (e) {
+        var inputString = $("#ival");
+        var elmId = $("#proid");
+        var base = window.location.origin;
+        var url = `${base}/basket/add/${$(elmId).val()}?count=${$(inputString).val()} `
+        window.location.replace(url)
+    });
+</script>

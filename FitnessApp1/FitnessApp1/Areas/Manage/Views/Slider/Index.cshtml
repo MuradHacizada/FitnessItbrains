@@ -1,0 +1,54 @@
+﻿@using FitnessApp1.Models;
+@model IEnumerable<Slider>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml"; int counter = 0;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Basic Table</h6>
+                <a  asp-controller="Slider" asp-action="Create" class="btn btn-success">Create</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            counter++;
+                            <tr>
+                                <th scope="row">@counter</th>
+                                <td><img style="width:100px;" src="~/img/slides/@item.Image" /></td>
+                                <td>@item.Title</td>
+
+                                <td>
+                                    @if (item.IsDeactive)
+                                    {
+                                        <a class="btn btn-success text-white rounded-pill" style="margin-right:13px;width:118px" asp-action="Activity" asp-route-id="@item.Id">Active</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-danger text-white rounded-pill" style="margin-right:13px;width:118px" asp-action="Activity" asp-route-id="@item.Id">DeActive</a>
+                                    }
+                                </td>
+                                <td><a asp-area="manage" asp-controller="Slider" asp-action="update" asp-route-id="@item.Id" class="btn btn-warning  ">Edit</a></td>
+                                <td><a asp-area="manage" asp-controller="Slider" asp-action="detail" asp-route-id="@item.Id" class="btn btn-warning  ">detail</a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

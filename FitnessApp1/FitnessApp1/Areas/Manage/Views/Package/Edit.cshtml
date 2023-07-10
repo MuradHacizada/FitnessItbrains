@@ -1,0 +1,99 @@
+﻿@model Package
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Tag> tags = (List<Tag>)ViewBag.Tags;
+    List<Trainer> trainers = (List<Trainer>)ViewBag.Trainers;
+
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" class="form-control" placeholder="Photo">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" class="form-control" placeholder="Title">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Session">Session</label>
+                                <input asp-for="Session" class="form-control" placeholder="Session">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Training">Training</label>
+                                <input asp-for="Training" class="form-control" placeholder="Training">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price">Price</label>
+                                <input asp-for="Price" class="form-control" placeholder="Price">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PriceLife">PriceLife</label>
+                                <input asp-for="PriceLife" class="form-control" placeholder="PriceLife">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PriceYear">PriceYear</label>
+                                <input asp-for="PriceYear" class="form-control" placeholder="PriceYear">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Icon">Icon</label>
+                                <input asp-for="Icon" class="form-control" placeholder="Icon">
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@Model.TagIds" class="form-label">Tag</label>
+                                <select asp-for="@Model.TagIds" class="form-select">
+                                    @foreach (var tag in ViewBag.Tags)
+                                    {
+                                        if (Model.PackageTags.FirstOrDefault(fc => fc.PackageId == tag.Id) != null)
+                                        {
+                                            <option value="@tag.Id" selected>@tag.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@tag.Id">@tag.Name</option>
+
+                                        }
+                                    }
+                                </select>
+                                <span class="mt-2 text text-danger" asp-validation-for="@Model.TagIds"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@Model.TrainerIds" class="form-label">Trainer</label>
+                                <select asp-for="@Model.TrainerIds" class="form-select">
+                                    @foreach (var trainer in ViewBag.Trainers)
+                                    {
+                                        if (Model.PackageTrainers.FirstOrDefault(fc => fc.PackageId == trainer.Id) != null)
+                                        {
+                                            <option value="@trainer.Id" selected>@trainer.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@trainer.Id">@trainer.Name</option>
+
+                                        }
+                                    }
+                                </select>
+                                <span class="mt-2 text text-danger" asp-validation-for="@Model.TrainerIds"></span>
+                            </div>
+
+                           
+
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-area="Manage" asp-controller="Package" asp-action="index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

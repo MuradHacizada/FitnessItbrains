@@ -1,0 +1,122 @@
+﻿@model Blog
+
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Single Fullwidth Detail page</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><span>Single Fullwidth Detail page</span></li>
+        </ul>
+    </div>
+</section>
+<section class="section-padding single-post-page">
+    <div class="container">
+        <div class="single-blog-post">
+            <div class="img-holder">
+                <img src="~/img/blog-post/@Model.Image" alt="">
+                <div class="icon-holder">
+                    <i class="fc-icon ftc-icon-dumbbell"></i>
+                    <p>Workout Tips</p>
+                </div>
+            </div>
+            <div class="content">
+                <ul class="meta">
+                    <li><a href=""><i class="fa fa-calendar"></i>04 Jan</a></li>
+                    <li><a href=""><i class="fa fa-user"></i>Mano</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i>Fitness Tips, Athlete, Jump</a></li>
+                    <li><a href=""><i class="fa fa-comments"></i> @ViewBag.Count Comments</a></li>
+                </ul>
+                <h3>@Model.Title</h3>
+                <p>
+                    In other words, it's OK to get heavier as the weights get heavier. A little more surface area is a good thing! You'll increase your muscle mass, and subsequently, your strength. Worry about cutting away any extra fat you gained once you've got more muscle to work with.
+                    <br />
+                    <br /> I'm not going to tell you what to eat; that part is up to you. But I'm not necessarily giving you permission to batter-dip your body on the way to a deadlift PR, either. If you do, your chin-up numbers will let you know when things have gotten out of hand! As you can probably see, these numbers aren't anything to call the Olympic Committee about. They simply allow a lifter to hold his or her own in the weight room, build some foundational musculature and a solid physique, and be able to set the stage for whatever they want to do next. If you want the science behind it, well, there isn't any. It's just what has worked for me as a trainer, and for my clients.
+                    <br />
+                    <br /> So, what will it take for you to get there? Here are my top rules, learned in the trenches, to ensure you're doing what you should to get your strength up—and just as important, not get in your own way. If you're not doing any of these, you should start, right now.
+                </p>
+                <div class="share-box">
+                    <label>Did You Like This Post? Share it :</label>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/login/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/login?lang=en"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=QsXWszvjMBM"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                    <!-- /.social-icons -->
+                </div>
+                <!-- /.share-box -->
+                <div class="prev-next-box clearfix">
+                    <a class="read-more pull-left arrow-push-out-left" href="#"><span><i class="fa fa-caret-left"></i>Previous</span></a>
+                    <a class="read-more pull-right arrow-push-out-right" href="#"><span>Next<i class="fa fa-caret-right"></i></span></a>
+                </div>
+                <!-- /.prev-next-box clearfix -->
+            </div>
+        </div>
+        <div class="comment-box">
+            <div class="section-title ">
+                <h1><span>Comments</span></h1>
+            </div>
+            @foreach (var cmnt in ViewBag.Comments)
+                    {
+                      
+            <div class="single-comment-box">
+                <div class="img-box">
+                    <img src="~/img/resources/comment-1.jpg" alt="Awesome Image">
+                </div>
+                <div class="text-box">
+                    <div class="top-box">
+                            <h2>@cmnt.AppUser.FullName</h2>
+                            <span> @cmnt.CreatedAt.ToString("MMMM dd, yyyy")   </span>
+                    </div>
+                    <div class="content">
+                            <p>    @cmnt.Message</p>
+                            @if (cmnt.AppUser.UserName == User.Identity.Name)
+                            {
+                                <a asp-controller="blog" asp-action="deletecomment" asp-route-id="@cmnt.Id">Delete</a>
+                            }
+                        </div>
+                </div>
+            </div> }
+        </div>
+        <!-- /.comment-box -->
+        <div class="reply-box">
+            <div class="section-title ">
+                <h1><span>Leave a Reply</span></h1>
+            </div>
+            <div class="row">
+                <form method="post" asp-controller="blog" asp-action="addcomment">
+                    <input type="hidden"   name="BlogId" value="@Model.Id" />
+
+                    <div class="col-md-12">
+                    <textarea name="Message" placeholder="Comments"></textarea>
+                </div>
+                <!-- /.col-md-12 -->
+                @if (User.Identity.IsAuthenticated)
+                    {                        
+                <div class="col-md-12">
+                    <button type="submit" class="arrow-push-out-right"><span>Submit Now <i class="fa fa-caret-right"></i></span></button>
+                        </div>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <div class="col-md-12">
+                            <a asp-controller="account" asp-action="login"  class="arrow-push-out-right"> Go To The Login  </a>
+                        </div>
+                    }
+                </form>
+                <!-- /.col-md-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.reply-box -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.section-padding -->

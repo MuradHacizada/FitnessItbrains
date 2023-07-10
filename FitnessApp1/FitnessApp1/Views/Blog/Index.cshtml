@@ -1,0 +1,64 @@
+﻿@model List<Blog>
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Grid View Without Sidebar</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><span>Grid View Without Sidebar</span></li>
+        </ul>
+    </div>
+</section>
+<section class="section-padding has-dynamic-divider blog-v2" data-count-element="3">
+    <div class="container">
+        <div class="row">
+            @foreach (Blog blog in Model)
+            {
+                <div class="col-md-4 dynamic-divider-element">
+                    <div class="single-blog-post">
+                        <div class="img-holder">
+                            <img alt="" src="~/img/blog-post/@blog.Image">
+                            <div class="overlay">
+                                <ul>
+                                    <li><a href="/blog/detail/@blog.Id"><i class="fa fa-link"></i></a></li>
+                                    <li><a href="/blog/detail/@blog.Id"><i class="fa fa-search-plus"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="icon-holder">
+                                <i class="@blog.Icon"></i>
+                                <p>Workout Tips</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <ul class="meta">
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-calendar"></i>04 Jan</a></li>
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-tag"></i>Mano</a></li>
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-tag"></i>Fitness Tips, Athlete, Jump</a></li>
+                            </ul>
+                            <h3>@blog.Title</h3>
+                            <p>@blog.Description</p>
+                            <a class="read-more arrow-push-in-right" href="/blog/detail/@blog.Id"><span>Read More<i class="fa fa-caret-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+            }
+           
+        </div>
+        <!-- /.row -->
+        <ul class="post-pagination list-inline text-center">
+            <li><a href="#"><i class="fa fa-caret-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+        </ul>
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.section-padding -->

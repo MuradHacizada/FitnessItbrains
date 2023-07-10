@@ -1,0 +1,66 @@
+﻿
+@using FitnessApp1.ViewModels.Account;
+@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+
+
+<section class="section-padding login-register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="section-title">
+                    <h1>Register Here</h1>
+                </div>
+                <!-- /.section-title -->
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <form method="post">
+                    <div class="form-grp">
+                        <input asp-for="Fullname" placeholder="Fullname" />
+                        <span class="text-dark text" style="color:red;" asp-validation-for="Fullname"></span>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="form-grp">
+                        <input asp-for="Username" placeholder="Username" />
+                        <span class="text-dark text" style="color:red;" asp-validation-for="Username"></span>
+                        
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="form-grp">
+                        <input asp-for="Email" placeholder="Enter Email" />
+                        <span class="text-dark text" style="color:red;" asp-validation-for="Email"></span>
+                        <i class="fa fa-envelope-o"></i>
+
+                    </div>
+                     <div class="form-grp">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" placeholder="Enter Password" />
+                        <span class="text-dark text" style="color:red;" asp-validation-for="Password"></span>
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="form-grp">
+                        <label asp-for="ConfirmPassword">Confirm Password</label>
+                        <input asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                        <span class="text-dark text" style="color:red;" asp-validation-for="ConfirmPassword"></span>
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="clearfix submit-box">
+                        <div class="pull-left">
+                            <button class="thm-btn" type="submit">Register</button>
+                        </div>
+                    </div>
+                    <!-- /.clearfix -->
+                    <span class="need-account">Already Have an Account? <a asp-controller="account" asp-action="login"> Login </a></span>
+                </form>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>

@@ -1,0 +1,180 @@
+﻿@model Package
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Single Package Detail</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/home/index">Packages</a></li>
+            <li><span>Single Package Detail</span></li>
+        </ul>
+    </div>
+</section>
+<section class="sidebar-pages health-care-package-area single-package-page white-bg pt0 pb0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                <div class="sidebar-page-content section-padding pb0">
+                    <div class="inner-page-wrapper section-padding pt0 white-bg">
+                        <div class="section-title text-left">
+                            <h1><span>Body Building</span></h1>
+                        </div>
+                        <img src="~/img/health-care-package/@Model.Image" alt="Awesome Image" />
+                        <div class="single-item">
+                            <div class="content clearfix">
+                                <div class="box">
+                                    <div class="top">
+                                        <div class="icon-holder pull-left">
+                                            <i class="fc-icon ftc-icon-weightlifter3"></i>
+                                        </div>
+                                        <div class="content-heading pull-left">
+                                            <h3>Body Building <span>($@Model.Price) for Month</span></h3>
+                                            <ul>
+                                                <li><i class="fa fa-circle"></i>01 Year Training </li>
+                                                <li><i class="fa fa-circle"></i>30 Min Session</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="package-list clearfix">
+                                        <h4>Package Includes:</h4>
+                                        <div class="row">
+                                            @foreach (PackageTag packageTag in Model.PackageTags)
+                                            {
+                                            <li><i class="fa fa-check"></i>@packageTag.Tag.Name</li>
+                                            }
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.single-item -->
+                        <div class="cta-box clearfix">
+                            <div class="pull-left">
+                                <a href="/package/add/@Model.Id?val=1" class="thm-btn arrow-push-out-right"><span>Join Now Month @Model.Price<i class="fa fa-caret-right"></i></span></a>
+                            </div>
+                            <div class="pull-left">
+                                <a href="/package/add/@Model.Id?val=2" class="thm-btn arrow-push-out-right"><span>Join Now Year @Model.PriceYear<i class="fa fa-caret-right"></i></span></a>
+                            </div>
+                            <div class="pull-left">
+                                <a href="/package/add/@Model.Id?val=3" class="thm-btn arrow-push-out-right"><span>Join Now LifeTime @Model.PriceLife<i class="fa fa-caret-right"></i></span></a>
+                            </div>
+                        </div>
+                        <!-- /.cta-box -->
+                        <div class="related-product-box experienced-trainer-area white-bg pb0">
+                            <div class="section-title text-left">
+                                <h1><span>Our experienced trainers</span></h1>
+                            </div>
+                            <!-- /.section-title -->
+                            <div class="related-project-carousel-2col related-product-carousel owl-theme owl-carousel">
+                                @foreach (PackageTrainer item in Model.PackageTrainers)
+                                {
+
+                                    <div class="item">
+                                        <div class="single-item">
+                                            <div class="img-holder">
+                                                <img alt="" src="~/img/experienced-trainer/@item.Trainer.Image">
+                                                <div class="overlay-content">
+                                                    <ul>
+                                                        <li><i class="fa fa-envelope"></i>@item.Trainer.Email</li>
+                                                        <li><i class="fa fa-phone"></i>@item.Trainer.Number</li>
+                                                        <li><i class="fa fa-cog"></i>Practising : 4+ years</li>
+                                                    </ul>
+                                                    <div class="overlay-buttom">
+                                                        <div class="trainer-name">
+                                                            <div class="name pull-left">
+                                                                <h3>@item.Trainer.Name</h3>
+                                                                <span>@item.Trainer.Position.Name</span>
+                                                            </div>
+                                                            <div class="icon-holder pull-right">
+                                                                <i class="@item.Package.Icon"></i>
+                                                            </div>
+                                                        </div>
+                                                        <p>@item.Trainer.Description</p>
+                                                        <div class="social-links">
+                                                            <a href="@item.Trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                                            <a href="@item.Trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                                            <a href="@item.Trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                                            <a href="@item.Trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="trainer-name">
+                                                    <div class="name pull-left">
+                                                        <h3>@item.Trainer.Name</h3>
+                                                        <span>@item.Trainer.Position.Name</span>
+                                                    </div>
+                                                    <div class="icon-holder pull-right">
+                                                        <i class="@item.Package.Icon"></i>
+                                                    </div>
+                                                </div>
+                                                <p>@item.Trainer.Description</p>
+                                                <div class="social-links">
+                                                    <a href="@item.Trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                                    <a href="@item.Trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                                    <a href="@item.Trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                                    <a href="@item.Trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- /.related-product-box -->
+                    </div>
+                    <!-- /.inner-page-wrapper -->
+                </div>
+                <!-- /.sidebar-page-content -->
+            </div>
+            <!-- /.col-lg-9 -->
+            <div class="col-lg-3 col-md-4 ">
+                <div class="sidebar-wrapper section-padding">
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar category-widget">
+                        <div class="title">
+                            <h3>Tags</h3>
+                        </div>
+                        <!-- /.title -->
+                        <ul>
+
+                            @foreach (var item in ViewBag.Tags)
+                            {
+                                <li><a href="/package/packagetag/@item.Id">@item.Name<span>(@item.PackageTags.Count)</span></a></li>
+
+                            }
+                        </ul>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar package-slider-widget">
+                        <div class="title">
+                            <h3>packages Slider</h3>
+                        </div>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar call-to-action-widget">
+                        <img src="~/img/resources/home-offerr.jpg" alt="Awesome Image" />
+                    </div>
+                    <!-- /.single-sidebar -->
+                </div>
+                <!-- /.sidebar-wrapper -->
+            </div>
+            <!-- /.col-lg-3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+

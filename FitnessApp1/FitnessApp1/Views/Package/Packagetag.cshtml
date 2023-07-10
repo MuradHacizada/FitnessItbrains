@@ -1,0 +1,161 @@
+﻿@model IEnumerable< Package>
+
+@{
+    ViewData["Title"] = "Packagetag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Our Packages</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><span>Packages</span></li>
+        </ul>
+    </div>
+</section>
+<section class="health-care-package-area package-v1">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1><span>Our Health Care Packages</span></h1>
+        </div>
+        <div class="row">
+            @foreach (Package package in Model)
+            {
+                <div class="col-lg-4 col-md-4">
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img alt="" src="~/img/health-care-package/@package.Image">
+                        </div>
+                        <div class="content">
+                            <div class="top">
+                                <div class="icon-holder pull-left">
+                                    <i class="@package.Icon"></i>
+                                </div>
+                                <div class="content-heading pull-left">
+                                    <h3>@package.Title <span>($@package.Price)</span></h3>
+                                </div>
+                            </div>
+                            <div class="package-list">
+                                <h4>Package Includes:</h4>
+                                <ul>
+                                    @foreach (PackageTag packageTag in package.PackageTags)
+                                    {
+                                        <li><i class="fa fa-check"></i>@packageTag.Tag.Name</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="pull-left black arrow-push-in-right" href="/package/detail/@package.Id"><span>More Details <i class="fa fa-caret-right"></i></span></a>
+                            <a class="pull-right arrow-push-in-right" href="/package/add/@package.Id?val=1"><span>Join Now <i class="fa fa-caret-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section class="pattern-4 section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-left">
+                <h1><span>Bmi Caluclatror</span></h1>
+            </div>
+            <div class="bmi-tab-box">
+                <div class="bmi-tab-title">
+                    <ul role="tablist">
+                        <li class="active" data-tab-name="male"><a href="#male" aria-controls="male" role="tab" data-toggle="tab"><i class="fa fa-male"></i> Male</a></li>
+                        <li data-tab-name="female"><a href="#female" aria-controls="female" role="tab" data-toggle="tab"><i class="fa fa-female"></i> Female</a></li>
+                    </ul>
+                </div>
+                <!-- /.bmi-tab-title -->
+                <div class="bmi-tab-content tab-content">
+                    <div class="content-box tab-pane fade in active" id="male">
+                        <form action="#" class="bmi-calc-form">
+                            <ul>
+                                <li>
+                                    <label>Age</label>
+                                    <input type="text" />
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;
+                                    <label>Weight </label>
+                                    <input type="text" class="input-weight" />
+                                    <span>Pounds</span>
+                                </li>
+                                <li>
+                                    <label>Height </label>
+                                    <input type="text" class="input-height-feet" />
+                                    <span>Feet</span>
+                                </li>
+                                <li>
+                                    <input type="text" class="input-height-inch" />
+                                    <span>Inches</span>
+                                </li>
+                            </ul>
+                            <button type="submit" class="thm-btn arrow-push-in-right"><span>Calculate <i class="fa fa-caret-right"></i></span></button> &emsp;&emsp;
+                            <button type="reset" class="thm-btn arrow-push-in-left"><span>Reset <i class="fa fa-caret-left"></i></span></button>
+                            <div class="result-box">
+                                <label>Your BMI Result :</label>
+                                <input type="text" value="0.0" class="input-result" />
+                            </div>
+                            <!-- /.result-box -->
+                        </form>
+                    </div>
+                    <!-- /.content-box -->
+                    <div class="content-box tab-pane fade" id="female">
+                        <form action="#" class="bmi-calc-form">
+                            <ul>
+                                <li>
+                                    <label>Age</label>
+                                    <input type="text" />
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;
+                                    <label>Weight </label>
+                                    <input type="text" class="input-weight" />
+                                    <span>Pounds</span>
+                                </li>
+                                <li>
+                                    <label>Height </label>
+                                    <input type="text" class="input-height-feet" />
+                                    <span>Feet</span>
+                                </li>
+                                <li>
+                                    <input type="text" class="input-height-inch" />
+                                    <span>Inches</span>
+                                </li>
+                            </ul>
+                            <button type="submit" class="thm-btn arrow-push-in-right"><span>Calculate <i class="fa fa-caret-right"></i></span></button> &emsp;&emsp;
+                            <button type="reset" class="thm-btn arrow-push-in-left"><span>Reset <i class="fa fa-caret-left"></i></span></button>
+                            <div class="result-box">
+                                <label>Your BMI Result :</label>
+                                <input type="text" value="0.0" class="input-result" />
+
+                            </div>
+                            <!-- /.result-box -->
+                        </form>
+                    </div>
+                    <!-- /.content-box -->
+                </div>
+                <!-- /.bmi-tab-content -->
+            </div>
+            <!-- /.bmi-tab-box -->
+        </div>
+        <!-- /.col-md-6 -->
+        <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.container -->
+</section>

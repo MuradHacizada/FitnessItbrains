@@ -1,0 +1,539 @@
+﻿@using FitnessApp1.ViewModels;
+@model HomeVM
+<section class="rev_slider_wrapper">
+    <div id="slider1" class="rev_slider" data-version="5.0">
+        <ul>
+            @foreach (Slider slider in Model.Sliders)
+            {
+                <li data-transition="random">
+                    <img src="~/img/slides/@slider.Image" alt="" width="1920" height="705" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1">
+                    <div class="tp-caption tp-resizeme banner-caption-h1" data-x="center" data-hoffset="0" data-y="top" data-voffset="385" data-transform_idle="o:1;" data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" data-splitin="none" data-splitout="none" data-start="500">
+                       @slider.Description1
+                    </div>
+                    <div class="tp-caption  tp-resizeme banner-caption-h1" data-x="center" data-hoffset="0" data-y="top" data-voffset="480" data-transform_idle="o:1;" data-transform_in="x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:[-100%];y:0;s:inherit;e:inherit;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="1500">
+                        @slider.Description2
+                    </div>
+                    <div class="tp-caption tp-resizeme banner-caption-h1-large banner-caption-bg" data-x="center" data-hoffset="0" data-y="top" data-voffset="570" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="2000">
+                        <span><img src="~/img/slides/title-decor.png" alt=""> @slider.Title</span>
+                    </div>
+                </li>
+            }
+            
+        </ul>
+    </div>
+</section>
+<section class="slider-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 slider-bottom-left">
+                <img src="~/img/resources/home-bannerr-1.png" id="skin-banner-1" alt="Awesome Image" />
+                <a href="pricing.html"><span>Join today</span></a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 slider-bottom-right">
+                <img src="~/img/resources/home-bannerr-2.png" id="skin-banner-2" alt="Awesome Image" />
+                <a href="contact.html" class="arrow-push-in-right"><span>Lets talk<i class="fa fa-caret-right"></i></span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="fitness-care-gym-area">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1><span>Benifits of Fitness Care GYM</span></h1>
+        </div>
+        <div class="row">
+            @foreach (Benefit benefit in Model.Benefits)
+            {
+                <!--Start single item-->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="single-item clearfix">
+                        <div class="left-box clearfix"></div>
+                        <div class="icon-holder">
+                            @Html.Raw(benefit.IconFigure)
+                        </div>
+                        <div class="right-box">
+                            <h3>@benefit.Name</h3>
+                            <p>@benefit.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End single item-->
+            }
+
+        </div>
+    </div>
+</section>
+<section class="support-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="img-holder">
+                    <img alt="" src="~/img/support/running.png">
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 support-content">
+                <div class="row">
+                    <!--Start single item-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-item">
+                            <div class="icon-holder">
+                                <i class="fa fa-database"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Responsive Layout</h3>
+                                <p>Visual Composer is a drag and drop frontend and backend page builder that will save you tons of time working on our site content</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single item-->
+                    <!--Start single item-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-item">
+                            <div class="icon-holder">
+                                <i class="fa fa-calculator"></i>
+                            </div>
+                            <div class="content">
+                                <h3>BMI & IWC Calculator</h3>
+                                <p>The Events Calendar is built to work out of the box configure the settings to match your needs and you'll be making events within less than 5 minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single item-->
+                    <!--Start single item-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-item">
+                            <div class="icon-holder">
+                                <i class="fa fa-codepen"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Premium Plugins Free</h3>
+                                <p>WooCommerce is built with developers in mind. It provides a strong, robust frame- work with which you can create a basic online store - or extend it as you need.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single item-->
+                    <!--Start single item-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-item">
+                            <div class="icon-holder">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Free Customer Support</h3>
+                                <p>Fitness Care is always up to date. We constantly listen to our customers and we add new features every week. We take good care of your business</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single item-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="workout-schedules-area">
+    <div class="container">
+        <div class="section-title">
+            <h1><span>daily workout Schedules</span></h1>
+        </div>
+        <div class="row">
+            <!--Start single item-->
+            @foreach (Blog blog in Model.Blogs)
+            {
+                <div class="col-md-4 dynamic-divider-element">
+                    <div class="single-blog-post">
+                        <div class="img-holder">
+                            <img alt="" src="~/img/blog-post/@blog.Image">
+                            <div class="overlay">
+                                <ul>
+                                    <li><a href="/blog/detail/@blog.Id"><i class="fa fa-link"></i></a></li>
+                                    <li><a href="/blog/detail/@blog.Id"><i class="fa fa-search-plus"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="icon-holder">
+                                <i class="@blog.Icon"></i>
+                                <p>Workout Tips</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <ul class="meta">
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-calendar"></i>04 Jan</a></li>
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-tag"></i>Mano</a></li>
+                                <li><a href="/blog/detail/@blog.Id"><i class="fa fa-tag"></i>Fitness Tips, Athlete, Jump</a></li>
+                            </ul>
+                            <h3>@blog.Title</h3>
+                            <p>@blog.Description</p>
+                            <a class="read-more arrow-push-in-right" href="/blog/detail/@blog.Id"><span>Read More<i class="fa fa-caret-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <!--End single item-->
+        </div>
+    </div>
+</section>
+<section class="health-care-package-area">
+    <div class="container">
+        <div class="section-title">
+            <h1><span>Our Health Care Packages</span></h1>
+        </div>
+        <div class="health-care-pack-carousel owl-theme owl-carousel">
+            @foreach (Package package in Model.Packages)
+            {
+                <div class="item">
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img src="~/img/health-care-package/@package.Image" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="top">
+                                <div class="icon-holder pull-left">
+                                    <i class="@package.Icon"></i>
+                                </div>
+                                <div class="content-heading pull-left">
+                                    <h3>Body Building <span>($@package.Price)</span></h3>
+                                    <ul>
+                                        <li><i class="fa fa-circle"></i>@package.Training Training </li>
+                                        <li><i class="fa fa-circle"></i>@package.Session Session</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="package-list">
+                                <h4>Package Includes:</h4>
+                                <ul>
+                                    @foreach (PackageTag packageTag in package.PackageTags)
+                                    {
+                                        <li><i class="fa fa-check"></i>@packageTag.Tag.Name</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="pull-left black arrow-push-in-right" href="/package/detail/@package.Id"><span>More Details <i class="fa fa-caret-right"></i></span></a>
+                            <a class="pull-right arrow-push-in-right" href="/package/add/@package.Id?val=1"><span>Join Now <i class="fa fa-caret-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<section class="walking-area">
+    <div class="container">
+        <div class="row">
+            <div id="walking-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#walking-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#walking-carousel" data-slide-to="1"></li>
+                    <li data-target="#walking-carousel" data-slide-to="2"></li>
+                    <li data-target="#walking-carousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="col-lg-12">
+                            <div class="single-item">
+                                <div class="walking">
+                                    <h1>8-Week’s Weight Loss Challenge</h1>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i>20 Feb</li>
+                                        <li><i class="fa fa-clock-o"></i>16:00 - 20:00</li>
+                                    </ul>
+                                    <p>
+                                        It would be perfect to do wit h your family, friends, co-workers anyone who wants to get and
+                                        <br>lose some weight in a healthy way! I have started a lot of diets and programs.
+                                    </p>
+                                    <a href="single-workout.html" class="thm-btn borderd arrow-push-in-right"><span>More Details <i class="fa fa-caret-right"></i></span></a> &emsp; &emsp;
+                                    <a href="pricing.html" class="thm-btn arrow-push-in-right"><span>Buy Now <i class="fa fa-caret-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-12">
+                            <div class="single-item">
+                                <div class="walking">
+                                    <h1>10 Best Muscle-Building Biceps Exercises</h1>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i>20 Feb</li>
+                                        <li><i class="fa fa-clock-o"></i>16:00 - 20:00</li>
+                                    </ul>
+                                    <p>
+                                        It would be perfect to do wit h your family, friends, co-workers anyone who wants to get and
+                                        <br>lose some weight in a healthy way! I have started a lot of diets and programs.
+                                    </p>
+                                    <a href="single-workout.html" class="thm-btn borderd arrow-push-in-right"><span>More Details <i class="fa fa-caret-right"></i></span></a> &emsp; &emsp;
+                                    <a href="pricing.html" class="thm-btn arrow-push-in-right"><span>Buy Now <i class="fa fa-caret-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-12">
+                            <div class="single-item">
+                                <div class="walking">
+                                    <h1>9 Ways You're Sabotaging Your Fat Loss</h1>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i>20 Feb</li>
+                                        <li><i class="fa fa-clock-o"></i>16:00 - 20:00</li>
+                                    </ul>
+                                    <p>
+                                        It would be perfect to do wit h your family, friends, co-workers anyone who wants to get and
+                                        <br>lose some weight in a healthy way! I have started a lot of diets and programs.
+                                    </p>
+                                    <a href="single-workout.html" class="thm-btn borderd arrow-push-in-right"><span>More Details <i class="fa fa-caret-right"></i></span></a> &emsp; &emsp;
+                                    <a href="pricing.html" class="thm-btn arrow-push-in-right"><span>Buy Now <i class="fa fa-caret-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-lg-12">
+                            <div class="single-item">
+                                <div class="walking">
+                                    <h1>Score More: Two Proven Muscle Recovery Tips</h1>
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i>20 Feb</li>
+                                        <li><i class="fa fa-clock-o"></i>16:00 - 20:00</li>
+                                    </ul>
+                                    <p>
+                                        It would be perfect to do wit h your family, friends, co-workers anyone who wants to get and
+                                        <br>lose some weight in a healthy way! I have started a lot of diets and programs.
+                                    </p>
+                                    <a href="single-workout.html" class="thm-btn borderd arrow-push-in-right"><span>More Details <i class="fa fa-caret-right"></i></span></a> &emsp; &emsp;
+                                    <a href="pricing.html" class="thm-btn arrow-push-in-right"><span>Buy Now <i class="fa fa-caret-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="experienced-trainer-area">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1><span>Our experienced trainers</span></h1>
+        </div>
+        <div class="row">
+            <!--Start single item-->
+            @foreach(Trainer trainer in Model.Trainers)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img src="~/img/experienced-trainer/@trainer.Image" alt="">
+                            <div class="overlay-content">
+                                <ul>
+                                    <li><i class="fa fa-envelope"></i>@trainer.Email</li>
+                                    <li><i class="fa fa-phone"></i>@trainer.Number</li>
+                                    <li><i class="fa fa-cog"></i>Practising : 4+ years</li>
+                                </ul>
+                                <div class="overlay-buttom">
+                                    <div class="trainer-name">
+                                        <div class="name pull-left">
+                                            <h3>@trainer.Name @trainer.Surname</h3>
+                                            <span>@trainer.Position.Name</span>
+                                        </div>
+                                        <div class="icon-holder pull-right">
+                                            <i class="fc-icon ftc-icon-dumbbell"></i>
+                                        </div>
+                                    </div>
+                                    <p>@trainer.Description</p>
+                                    <div class="social-links">
+                                        <a href="@trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                        <a href="@trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                        <a href="@trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                        <a href="@trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="trainer-name">
+                                <div class="name pull-left">
+                                    <h3>@trainer.Name @trainer.Surname</h3>
+                                    <span>@trainer.Position.Name</span>
+                                </div>
+                                <div class="icon-holder pull-right">
+                                    <i class="fc-icon ftc-icon-dumbbell"></i>
+                                </div>
+                            </div>
+                            <p>Fitness & Body builders spend years, even decades, perfecting the human form. Now, you may not want into your routine.</p>
+                            <div class="social-links">
+                                <a href="@trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                <a href="@trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                <a href="@trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                <a href="@trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--End single item-->
+        </div>
+    </div>
+</section>
+<section class="daily-training-workout-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-4 col-sm-3 col-xs-12">
+                <div class="img-holder">
+                    <img src="~/img/resources/i-phonee.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-8 col-sm-9 col-xs-12">
+                <div class="content">
+                    <h1>Plan your Daily training & workouts </h1>
+                    <p>It would be perfect to do with your family, friends, co-workers anyone who I have started a lot of diets and programs.</p>
+                    <ul>
+                        <li><i class="fa fa-check"></i>Fitness App That All Love</li>
+                        <li><i class="fa fa-check"></i>Control Changes for Best Result</li>
+                        <li><i class="fa fa-check"></i>Get your Dose of Fitness Now</li>
+                    </ul>
+                    <div class="google-play-app-store">
+                        <ul>
+                            <li>
+                                <a href=""><img src="~/img/resources/google-play.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="~/img/resources/app-store.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq-testimonial-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-title">
+                    <h1><span>Satisfied Customers Say</span></h1>
+                </div>
+                <div class="testimonial-carousel-wrapper owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="single-testimonial-carousel">
+                            <div class="qoute-icon-box">
+                                <img src="~/img/resources/qoute-icon.png" alt="Awesome Image" />
+                            </div>
+                            <div class="testimonial-text-box">
+                                <h3>Practice Puts Brains in Your Muscles</h3>
+                                <p>Fitness Care Gym isn’t anything like a regular chain gym. The class based sessions are challenging, innovative, and fun led by highly talented trainers. The gym also has amazing equipment that you don’t find in most gyms like Kettlebells, battle ropes and sledges. </p>
+                                <span class="name">Louis Williams</span>
+                                <div class="review-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-testimonial-carousel">
+                            <div class="qoute-icon-box">
+                                <img src="~/img/resources/qoute-icon.png" alt="Awesome Image" />
+                            </div>
+                            <div class="testimonial-text-box">
+                                <h3>Practice Puts Brains in Your Muscles</h3>
+                                <p>Fitness Care Gym isn’t anything like a regular chain gym. The class based sessions are challenging, innovative, and fun led by highly talented trainers. The gym also has amazing equipment that you don’t find in most gyms like Kettlebells, battle ropes and sledges. </p>
+                                <span class="name">Louis Williams</span>
+                                <div class="review-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="single-testimonial-carousel">
+                            <div class="qoute-icon-box">
+                                <img src="~/img/resources/qoute-icon.png" alt="Awesome Image" />
+                            </div>
+                            <div class="testimonial-text-box">
+                                <h3>Practice Puts Brains in Your Muscles</h3>
+                                <p>Fitness Care Gym isn’t anything like a regular chain gym. The class based sessions are challenging, innovative, and fun led by highly talented trainers. The gym also has amazing equipment that you don’t find in most gyms like Kettlebells, battle ropes and sledges. </p>
+                                <span class="name">Louis Williams</span>
+                                <div class="review-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-title">
+                    <h1><span>FITNESS RELATED FAQ'S</span></h1>
+                </div>
+                <div class="accrodion-grp" data-grp-name="faq-accrodion">
+                    <div class="accrodion ">
+                        <div class="accrodion-title">
+                            <h4 class="clearfix"><span>Make a shift to avoid diabetes.</span></h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <p>Over time, high blood sugar damages arteries and puts you at risk for heart disease. Your doctor should test your blood sugar if you are 45 or older, if you are pregnant, or if you're overweight and have other risk factors for diabetes.</p>
+                        </div>
+                    </div>
+                    <div class="accrodion ">
+                        <div class="accrodion-title">
+                            <h4 class="clearfix"><span>Have more fruit and less fruit juice.</span></h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <p>Over time, high blood sugar damages arteries and puts you at risk for heart disease. Your doctor should test your blood sugar if you are 45 or older, if you are pregnant, or if you're overweight and have other risk factors for diabetes.</p>
+                        </div>
+                    </div>
+                    <div class="accrodion active">
+                        <div class="accrodion-title">
+                            <h4 class="clearfix"><span>Ditch the cigarettes, real and electronic.</span></h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <p>Over time, high blood sugar damages arteries and puts you at risk for heart disease. Your doctor should test your blood sugar if you are 45 or older, if you are pregnant, or if you're overweight and have other risk factors for diabetes.</p>
+                        </div>
+                    </div>
+                    <div class="accrodion">
+                        <div class="accrodion-title">
+                            <h4 class="clearfix"><span> Throw your heart a birthday party!</span></h4>
+                        </div>
+                        <div class="accrodion-content">
+                            <p>Over time, high blood sugar damages arteries and puts you at risk for heart disease. Your doctor should test your blood sugar if you are 45 or older, if you are pregnant, or if you're overweight and have other risk factors for diabetes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="subscribe-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 hidden-sm">
+                <div class="img-holder">
+                    <img src="~/img/subscribe/trainerss.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 col-xs-12">
+                <div class="subscribe-form">
+                    <h1 class="title">Subscribe us for Offers & Health Tips</h1>
+                    <form class="subscribe mailchimp-form" action="~/inc/mailchimp/subscribe.php">
+                        <input class="name" type="text" name="fname" placeholder="Your Name">
+                        <input class="email" type="text" name="email" placeholder="Your Email">
+                        <button asp-controller="Package" asp-action="Index" class="thm-btn arrow-push-out-right" type="submit"><span>Subscribe  Now <i class="fa fa-caret-right"></i></span></button>
+                    </form>
+                    <h1>Give us a Call  : <span>+1 212-212-2376</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

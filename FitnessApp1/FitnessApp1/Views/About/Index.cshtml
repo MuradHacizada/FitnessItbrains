@@ -1,0 +1,160 @@
+﻿@using FitnessApp1.ViewModels;
+@model AboutVM
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>About us</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><span>About Us</span></li>
+        </ul>
+    </div>
+</section>
+<section class="fitness-video-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="video-box">
+                    <div class="inner-box">
+                        <ul class="img-list">
+                            <li class="active" data-video-img="~/img/video-gallery/maiin-1.jpg" data-video-url="https://www.youtube.com/watch?v=KssOT2QVg-M"><img src="~/img/video-gallery/thumb-1.jpg" alt="" /></li>
+                            <li data-video-img="~/img/video-gallery/maiin-2.jpg" data-video-url="https://www.youtube.com/watch?v=WYbEt5AVMF8"><img src="~/img/video-gallery/thumb-2.jpg" alt="" /></li>
+                            <li data-video-img="~/img/video-gallery/maiin-3.jpg" data-video-url="https://www.youtube.com/watch?v=k0ZvG_917YI"><img src="~/img/video-gallery/thumb-3.jpg" alt="" /></li>
+                        </ul>
+                        <div class="main-box">
+                            <div class="img-box">
+                                <img src="~/img/video-gallery/main-1.jpg" alt="Awesome Image" />
+                                <div class="overlay">
+                                    <div class="box-content">
+                                        <div class="content">
+                                            <a class="play-video video-fancybox" href="#"><img src="~/img/resources/video-play.png" alt="Awesome Image" /></a>
+                                        </div>
+                                        <!-- /.content -->
+                                    </div>
+                                    <!-- /.box-content -->
+                                </div>
+                                <!-- /.overlay -->
+                            </div>
+                            <!-- /.img-box -->
+                        </div>
+                        <!-- /.main-box -->
+                        <ul class="navigation vid-nav">
+                            <li><a data-dir="prev" href="#"><i class="fa fa-angle-left"></i></a></li>
+                            <li><a data-dir="next" href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                        <!-- /.navigation -->
+                    </div>
+                    <!-- /.inner-box -->
+                </div>
+                <!-- /.video-box -->
+            </div>
+            <!-- /.col-md-7 -->
+            <div class="col-md-5">
+                <div class="right-text">
+                    <h3>Video Gallery : fitness Care Trainers Workouts.</h3>
+                    <p class="highlighted">We have found the best workouts from around the world and put them in one database that you can search by days per week, type of program, and much more! </p>
+                    <br />
+                    <p>Many workouts accomplish different goals at the same time. For example, a muscle building workout will almost always help build strength at the same time. Choose the goal that is MOST important to you, and the workouts that are shown will be geared more toward your chosen goal. </p>
+                    <br />
+                    <p>A Split Bodypart Routine means that you work different body parts on different days. For example, one workout might have you work biceps and chest on one day, then triceps and back on a different day. This is the most common type of workout program.</p>
+                    <br />
+                    <h4>YOUR SUCCESS IS OUR PASSION</h4>
+                </div>
+                <!-- /.right-text -->
+            </div>
+            <!-- /.col-md-7 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.fitness-video-area -->
+<!--Start join now area-->
+<section class="join-now-area pattern-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="join-now text-center">
+                    <h1>We have a Session starting soon – Join now and<br> Meet us at Fitness Care</h1>
+                    <div class="button">
+                        <a class="thm-btn arrow-push-out-right" asp-controller="Blog" asp-action="Index"><span>More Details <i class="fa fa-caret-right"></i></span></a>
+                        <a class="thm-btn arrow-push-out-right thm-black borderd white-bg color-black" asp-controller="Package" asp-action="Index" ><span class="color-black">Join Now <i class="fa fa-caret-right color-black"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End join now area-->
+<section class="fitness-service-round-icon square-box section-padding">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1><span>Fitness care services</span></h1>
+        </div>
+        <div class="row">
+            @foreach (Service service in Model.Services)
+            {
+                <div class="col-md-4">
+                    <div class="single-fitness-service-round-icon square-box">
+                        <div class="icon-box">
+                            @Html.Raw(service.Icon)
+                        </div>
+                        <!-- /.icon-box -->
+                        <h3>@service.Name</h3>
+                        <p>@service.Description</p>
+                        <a href="single-workout.html">Join Now</a>
+                    </div>
+                    <!-- /.single-fitness-service-round-icon -->
+                </div>
+                <!-- /.col-md-4 -->
+            }
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.fitness-service-round-icon -->
+<!-- /.fitness-team-style-two -->
+<section class="perfect-plan-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-3">
+                <div class="perfect-plan-left">
+                    <div class="img-holder">
+                        <img src="~/img/perfect-plan/plann-img.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-9">
+                <div class="perfect-plan-right">
+                    <h2>Choose your perfect plan and track your workouts</h2>
+                    <span>Find friends and like-minded fitness buffs on BodySpace! With an army of supporters behind you, you'll never feel like you're training alone.</span>
+                    <ul>
+                        <li><i class="fa fa-check"></i>Fitness App That All Love</li>
+                        <li><i class="fa fa-check"></i>Control Changes for Best Result</li>
+                        <li><i class="fa fa-check"></i>Get your Dose of Fitness Now</li>
+                    </ul>
+                    <div class="google-play-app-store">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="~/img/perfect-plan/google-play.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="~/img/perfect-plan/app-store.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

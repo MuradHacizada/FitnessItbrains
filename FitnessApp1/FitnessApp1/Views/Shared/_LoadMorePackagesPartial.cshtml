@@ -1,0 +1,39 @@
+﻿@model List<Package>
+@foreach (Package package in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="single-item">
+            <div class="img-holder">
+                <img alt="" src="~/img/health-care-package/@package.Image">
+            </div>
+            <div class="content">
+                <div class="top">
+                    <div class="icon-holder pull-left">
+                        <i class="@package.Icon"></i>
+                    </div>
+
+                    <div class="content-heading pull-left">
+                        <h3>@package.Title <span>($@package.Price)</span></h3>
+                        <ul>
+                            <li><i class="fa fa-circle"></i>@package.Training Training </li>
+                            <li><i class="fa fa-circle"></i>@package.Session Session</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="package-list">
+                    <h4>Package Includes:</h4>
+                    <ul>
+                        @foreach (PackageTag packageTag in package.PackageTags)
+                        {
+                            <li><i class="fa fa-check"></i>@packageTag.Tag.Name</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="button">
+                <a class="pull-left black arrow-push-in-right" href="/package/detail/@package.Id"><span>More Details <i class="fa fa-caret-right"></i></span></a>
+                <a class="pull-right arrow-push-in-right" href="/package/add/@package.Id?val=1"><span>Join Now <i class="fa fa-caret-right"></i></span></a>
+            </div>
+        </div>
+    </div>
+}

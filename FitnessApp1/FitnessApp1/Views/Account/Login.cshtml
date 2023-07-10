@@ -1,0 +1,75 @@
+﻿@using FitnessApp1.ViewModels.Account;
+@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+
+
+
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Login & Register</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><span>Login & Register</span></li>
+        </ul>
+    </div>
+</section>
+<section class="section-padding login-register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="section-title">
+                    <h1>Login Here</h1>
+                </div>
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <!-- /.section-title -->
+                <form class="mx-1 mx-md-4" method="post" asp-action="Login">
+                    <div class="form-grp">
+                        <input asp-for="Username" placeholder="Username" />
+                        <span class="text-danger" asp-validation-for="Username"></span>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="form-grp">
+                        <input asp-for="Password" placeholder="Password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                        <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="clearfix remember-box">
+                        <div class="pull-left">
+                            <input asp-for="RememberMe" type="checkbox" />
+                            <label>Remember Me</label>
+                        </div>
+                        <!-- /.pull-left -->
+                        <div class="pull-right">
+                            <a href="/account/forgotpassword">Forgot Password?</a>
+                        </div>
+                        <!-- /.pull-right -->
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="clearfix submit-box">
+                        <div class="pull-left">
+                            <button class="thm-btn" type="submit">Login</button>
+                        </div>
+                        <!-- /.pull-right -->
+                    </div>
+                    <!-- /.clearfix -->
+                </form>
+            </div>
+            <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>

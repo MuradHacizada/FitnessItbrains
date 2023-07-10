@@ -1,0 +1,228 @@
+﻿@model OrderVM
+@{
+    decimal totalprice = 0;
+}
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Checkout Page</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/shop/index">Shop</a></li>
+            <li><span>Checkout Page</span></li>
+        </ul>
+    </div>
+</section>
+<!--Checkoout Section-->
+<section class="checkout-section section-padding cart-section">
+    <div class="container">
+        <div class="row clearfix bottom">
+            <!--Default Column-->
+            <div class="col-md-6 col-sm-12 col-xs-12 column default-column">
+                <div class="table-outer">
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+                                <th class="prod-column">PRODUCT</th>
+                                <th>&nbsp;</th>
+                                <th>QUANTITY</th>
+                                <th class="price">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.BasketItems.Where(p => p.ProductId != null))
+                            {
+
+                                <span style="display:none">@(totalprice += item.Product.DiscountId == null ? item.Count * item.Product.Price : item.Count * item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100)</span>
+
+                                <tr>
+                                    <td colspan="2" class="prod-column">
+                                        <div class="column-box">
+                                            <figure class="prod-thumb">
+                                                @foreach (var img in item.Product.ProductImages)
+                                                {
+                                                    if (img.IsMain)
+                                                    {
+                                                        <a href="#"><img width="70px" src="~/img/shop/@img.ImageUrl" alt=""></a>
+
+                                                    }
+                                                }
+                                            </figure>
+                                            <h3 class="prod-title padd-top-20">Start From The Art</h3>
+                                        </div>
+                                    </td>
+                                    <td class="qty">
+                                        <span>@item.Count</span>
+                                    </td>
+                                    <td class="price">
+
+                                        $@if (item.Product.DiscountId == null)
+                                        {
+                                            @(item.Product.Price * item.Count)
+                                        }
+                                        else
+                                        {
+                                            @(((item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100) * item.Count))
+
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                            @foreach (var item in Model.BasketItems.Where(p => p.PackageId != null))
+                            {
+
+                                <span style="display:none">
+                                    <p>
+                                        @if (item.PackagPrice == 1)
+                                        {
+                                            @(totalprice += item.Package.Price)
+                                        }
+
+                                        @if (item.PackagPrice == 2)
+                                        {
+                                            @(totalprice += item.Package.PriceYear)
+
+                                        }
+                                        @if (item.PackagPrice == 3)
+                                        {
+                                            @(totalprice += item.Package.PriceLife)
+
+                                        }
+                                    </p>
+                                </span>
+
+                                <tr>
+                                    <td class="name">
+                                        <span>@item.Package.Title</span>
+                                    </td>
+
+                                    <td class=" ">
+                                        <span>@item.Count</span>
+                                    </td>
+                                    <td class="price">
+
+                                        @if (item.PackagPrice == 1)
+                                        {
+                                            @item.Package.Price
+                                        }
+
+                                        @if (item.PackagPrice == 2)
+                                        {
+                                            @item.Package.PriceYear
+                                        }
+                                        @if (item.PackagPrice == 3)
+                                        {
+                                            @item.Package.PriceLife
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Default Column-->
+            <div class="col-md-6 col-sm-12 col-xs-12 column default-column cart-total">
+                <div class="section-title text-left">
+                    <h1><span>Cart Totals</span></h1>
+                </div>
+                <!--Totals Table-->
+                <ul class="totals-table">
+                    <li class="clearfix"><span class="col col-title">Cart Subtotal</span><span class="col">$@totalprice</span></li>
+                    <li class="clearfix"><span class="col col-title">Shipping and Handling</span><span class="col">Free Shipping</span></li>
+                    <li class="clearfix"><span class="col col-title">Order Total</span><span class="col">$@totalprice</span></li>
+                </ul>
+                <!--Payment Options-->
+                <div class="payment-options">
+                    <div class="option-block">
+                        <div class="radio-block active">
+                            <div class="icon clearfix">
+                                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                            </div>
+                            <label class="radio-label">Direct Bank Transfer</label>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <p>Make your payment directly into our bank account. Please use your order ID as the payment reference.order won’t be shipped until the funds have cleared.</p>
+                    </div>
+                    <div class="option-block">
+                        <div class="radio-block">
+                            <div class="icon clearfix">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <label class="radio-label">Cheque Payment</label>
+                        </div>
+                    </div>
+                    <div class="option-block">
+                        <div class="radio-block">
+                            <div class="icon clearfix">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <label class="radio-label"><span class="pull-left">Credit Card</span><span class="pull-right"><img src="~/img/shop/card.png" alt=""></span><span class="clearfix"></span></label>
+                        </div>
+                    </div>
+                    <div class="option-block">
+                        <div class="radio-block">
+                            <div class="icon clearfix">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <label class="radio-label"><span class="pull-left">Paypal</span><span class="pull-right"><img src="~/img/shop/paypal.png" alt=""></span><span class="clearfix"></span></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row clearfix">
+            <!--Form Column-->
+            <!--Form Column-->
+            <div class="col-md-12 col-sm-12 col-xs-12 column form-column">
+                <div class="section-title text-left">
+                    <h1><span>Shipping Address</span></h1>
+                </div>
+                <div class="default-form billing-info-form">
+                    <form method="post">
+                        <div class="row clearfix">
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Contact Info*</div>
+                                <input asp-for="@Model.Email" placeholder="Email Address">
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Country*</div>
+                                <input asp-for="@Model.CountryRegion">
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Firstname*</div>
+                                <input asp-for="@Model.Firstname">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Address*</div>
+                                <input asp-for="@Model.Address">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Town / City *</div>
+                                <input asp-for="@Model.City">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <input asp-for="@Model.ZipCode" placeholder=" Zip Code">
+                            </div>
+                            <div class="margin-top-40 text-right">
+                                <button type="submit" class="thm-btn thm-blue-bg">Place Order</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

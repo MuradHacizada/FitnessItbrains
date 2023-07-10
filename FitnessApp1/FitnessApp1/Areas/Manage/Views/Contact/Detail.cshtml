@@ -1,0 +1,41 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Detail";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Basic Table</h6>
+                <a asp-area="manage" asp-controller="blog" asp-action="Create" class="btn btn-success">Create</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Solution</th>
+                            <th scope="col">Message</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+
+                            <td>@Model.Name</td>
+                            <td>@Model.Email</td>
+                            <td>@Model.Phone</td>
+                            <td>@Model.Solution</td>
+                            <td>@Model.Message</td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

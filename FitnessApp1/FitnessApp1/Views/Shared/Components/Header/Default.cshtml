@@ -1,0 +1,93 @@
+﻿@inject FitnessApp1.Services.LayoutService layoutService
+@{
+    BasketVM basket = await layoutService.ShowBasket();
+
+}
+
+<header class="header header-v1 has-over-section stricky dark-header ">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 pull-right">
+                    <div class="top-info">
+                        <div class="clearfix">
+                            <ul class="contact-info pull-left">
+                                <li><span><i class="fc-icon ftc-icon-email"></i> Contact@Fitnesscare.com</span></li>
+                                <li><span><i class="fc-icon ftc-icon-phone-contact"></i> Troll Free: +1 212-212-2376</span></li>
+                            </ul>
+                            <ul class="social pull-right">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu-wrapper ">
+        <div class="container">
+            <nav class="navigation clearfix">
+                <div id="menuzord" class="menuzord">
+                    <a asp-controller="Home" asp-action="Index" class="menuzord-brand">
+                        <img src="~/img/resources/logo.png" alt="Awesome Image" id="skin-logo-img" />
+                    </a>
+                    <ul class="menuzord-menu">
+                        <li>
+                            <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index" class="flip-flop-btn"><span data-hover="HOME">HOME</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="HOME" asp-action="Index" class="flip-flop-btn"><span data-hover="HOME">HOME</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="About" asp-action="Index" class="flip-flop-btn"><span data-hover="ABOUT">ABOUT</span></a>
+                            <ul class="dropdown">
+
+                                <li><a asp-controller="About" asp-action="Trainer">Trainers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-controller="Package" asp-action="Index" class="flip-flop-btn"><span data-hover="Packages">Packages</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="BLOG" asp-action="Index" class="flip-flop-btn"><span data-hover="BLOG">BLOG</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="SHOP" asp-action="Index" class="flip-flop-btn"><span data-hover="SHOP">SHOP</span></a>
+                        </li>
+                        <li><a asp-controller="CONTACT" asp-action="Index" class="flip-flop-btn"><span data-hover="CONTACT">CONTACT</span></a></li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+
+
+                            <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+                            <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-controller="Account" asp-action="logout">Logout</a></li>
+                            <li><a href="#">@User.Identity.Name</a></li>
+                        }
+
+
+                        @await Html.PartialAsync("_basketPartial",layoutService)
+                        <li class="search-button">
+                            <a data-toggle="collapse" href="#search-box" aria-expanded="false" aria-controls="search-box"><i class="fa fa-search"></i> <span class="text">Search</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div><!-- /.header-menu-wrapper -->
+    <div class="search-box collapse" id="search-box">
+        <div class="container">
+            <form action="#">
+                <input type="text" id="search-input" placeholder="To Search Start Typing...">
+            </form>
+        </div>
+        <ul class="search-results list-group" id="search-results">
+        </ul>
+    </div>
+</header> 

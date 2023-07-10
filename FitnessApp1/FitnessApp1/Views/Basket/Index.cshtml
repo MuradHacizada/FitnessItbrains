@@ -1,0 +1,291 @@
+﻿@model OrderVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal totalprice = 0;
+
+}
+
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Cart page</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/shop/index">Shop</a></li>
+            <li><span>Cart page</span></li>
+        </ul>
+    </div>
+</section>
+<!--Cart Section-->
+<section class="cart-section pb0">
+    <div class="container">
+        <!--Cart Outer-->
+        <div class="cart-outer">
+            <div class="table-outer">
+                <table class="cart-table">
+                    <thead class="cart-header">
+                        <tr>
+                            <th class="prod-column">PRODUCT</th>
+                            <th>&nbsp;</th>
+                            <th>QUANTITY</th>
+                            <th>Avalability</th>
+                            <th class="price">Price</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.BasketItems)
+                        {
+                            <span style="display:none">@(totalprice += item.Product.DiscountId == null ? item.Count * item.Product.Price : item.Count * item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100)</span>
+
+                            <tr>
+                                <td colspan="2" class="prod-column">
+                                    <div class="column-box">
+                                        <figure class="prod-thumb">
+                                            @foreach (var photo in item.Product.ProductImages)
+                                            {
+                                                if (photo.IsMain)
+                                                {
+                                                    <a href="#"><img src="~/img/shop/@photo.ImageUrl" width="70px" alt=""></a>
+
+                                                }
+                                            }
+
+                                        </figure>
+                                        <h3 class="prod-title padd-top-20">@item.Product.Name</h3>
+                                    </div>
+                                </td>
+                                <td class="qty">
+                                    <div class="quickview-plus-minus d-flex justify-content-center align-items-center pt-4">
+                                        <div class="cart-plus-minus border d-flex justify-content-around align-items-center w-80">
+                                            <div data-id="@item.Product.Id" class="minus down text-white fw-bold" style="cursor: pointer;">-</div>
+                                            <span class="bg-transparent inp-value border-0 w-24 text-white" style="outline: none;">@item.Count</span>
+                                            @*<input class="bg-transparent inp-value border-0 w-24 text-white" style="outline: none;">*@
+                                            <div data-id="@item.Product.Id" class="plus up text-white fw-bold" style="cursor: pointer;">+</div>
+                                        </div>
+                                    </div>
+                                    @*<input class="quantity-spinner" type="text" value="1" name="quantity">*@
+                                </td>
+                                <td class="unit-price">
+                                    <div class="available-info">
+                                        <span class="icon fa fa-check"></span> Item(s)
+                                        <br>Avilable Now
+                                    </div>
+                                </td>
+                                <td class="price">
+                                    <span>$</span><span class="money">
+
+                                        @if (item.Product.DiscountId == null)
+                                        {
+                                            @item.Product.Price
+                                        }
+                                        else
+                                        {
+                                            @((item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100))
+                                        }
+
+                                    </span>
+
+
+                                </td>
+                                <td class="sub-total">
+
+                                    <span>$</span><span class=" money-t" data-id="@item.Product.Id">
+
+                                        @if (item.Product.DiscountId == null)
+                                        {
+                                            @((item.Product.Price * item.Count))
+
+                                        }
+                                        else
+                                        {
+                                            @(((item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100) * item.Count).ToString("f2"))
+
+                                        }
+
+                                    </span>
+
+                                </td>
+                                <td class="remove"><a asp-controller="basket" asp-action="remove" asp-route-id="@item.Product.Id" class="remove-btn delete"><span class="fa fa-trash-o"></span> Remove</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="update-cart-box clearfix">
+                <div class="pull-left">
+                    <div class="apply-coupon clearfix">
+                        <div class="form-group clearfix">
+                            <input type="text" name="coupon-code" value="" placeholder="Enter Coupon Code...">
+                        </div>
+                        <div class="form-group clearfix">
+                            <button type="button" class="thm-btn thm-blue-bg">Apply Coupon</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="thm-btn update-cart">Update Cart</button> &emsp;
+                    <a href="/basket/checkout" class="thm-btn thm-blue-bg">Proceed to Checkout</a>
+                </div>
+            </div>
+            <div class="row clearfix section-padding">
+                <div class="column col-md-6 col-sm-12 col-xs-12">
+                    <div class="estimate-form default-form">
+                        <div class="section-title text-left">
+                            <h1><span>Calculate Shipping</span></h1>
+                        </div>
+                        <form method="post" action="#">
+                            <div class="row clearfix">
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <button type="submit" class="thm-btn thm-blue-bg">Update Totals</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="column cart-total col-md-6 col-sm-12 col-xs-12">
+                    <div class="section-title text-left">
+                        <h1><span>Cart Totals</span></h1>
+                    </div>
+                    <!--Totals Table-->
+                    <ul class="totals-table">
+                        <li class="clearfix"><span class="col col-title">Shipping and Handling</span><span class="col">Free Shipping</span></li>
+                        <li class="clearfix"><span class="col col-title">Order Total</span><span class="col">  $<span class="money total_price">@totalprice</span></span></li>
+                    </ul>
+                    <div class="margin-top-30 text-right"><a href="/basket/checkout" class="thm-btn thm-blue-bg">Proceed to Checkout</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Input count
+    var myInp = document.querySelectorAll(".inp-value");
+    var increaseBtn = document.querySelectorAll(".up");
+    var decreaseBtn = document.querySelectorAll(".down");
+    for (let elem of decreaseBtn) {
+
+        elem.addEventListener("click", function (e) {
+            e.preventDefault()
+            countst = this.nextElementSibling.innerText
+            countstn = Number(countst)
+            if (countstn > 1) {
+                count = this.nextElementSibling.innerText
+                countn = Number(count)
+                countn -= 1;
+                this.nextElementSibling.innerText = countn;
+            }
+        })
+    }
+    for (let elem of increaseBtn) {
+
+        elem.addEventListener("click", function (e) {
+            e.preventDefault()
+            count = this.previousElementSibling.innerText
+            countn = Number(count)
+            countn += 1;
+            this.previousElementSibling.innerText = countn;
+
+
+        })
+    }
+    $(document).ready(function () {
+
+        $(document).on("click", ".down", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id")
+            var total = document.querySelector(".total_price")
+            var money = document.querySelectorAll(".money-t")
+            console.log(id)
+            $.ajax({
+                url: "/basket/minus",
+                data: {
+                    id: id
+                },
+                type: "post",
+                datatype: "json",
+                success: function (data) {
+                    money.forEach(mon => {
+                        if (id == mon.getAttribute("data-id")) {
+                            mon.innerHTML = data.price
+                        }
+                    })
+                    total.innerHTML = `${data.totalPrice}`
+
+                }
+            })
+
+        })
+
+
+        $(document).on("click", ".up", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id")
+            var total = document.querySelector(".total_price")
+            var money = document.querySelectorAll(".money-t")
+            console.log(id)
+            $.ajax({
+                url: "/basket/plus",
+                data: {
+                    id: id
+                },
+                type: "post",
+                datatype: "json",
+                success: function (data) {
+                    money.forEach(mon => {
+                        if (id == mon.getAttribute("data-id")) {
+                            mon.innerHTML = data.price
+                        }
+                    })
+                    total.innerHTML = `${data.totalPrice}`
+
+                }
+            })
+
+        })
+
+
+    })
+
+
+</script>
+<script>
+    $(".delete").click(function (e) {
+        e.preventDefault()
+        console.log($(this).attr("href"))
+        Swal.fire({
+            title: 'Əminsiniz?',
+            text: "Bunun geri dönüşü yoxdur!",
+            icon: 'Xəbərdarlıq',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli sil!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr("href");
+                fetch(link).then(response => response.json()).then(data => {
+                    if (data.status == 200) {
+                        location.reload(true)
+                    } else {
+                        Swal.fire(
+                            'Tapılmadı!',
+                            'Fayl silinmiş ola bilər.',
+                            'Uğursuz cəhd'
+                        )
+                    }
+                });
+            }
+        })
+    })
+</script>

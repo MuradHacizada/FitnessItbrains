@@ -1,0 +1,142 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Category> categories = (List<Category>)ViewBag.Categories;
+    List<Discount> campaigns = (List<Discount>)ViewBag.Discounts;
+
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" class="form-control" placeholder="Photo">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description">Description</label>
+                                <input asp-for="Description" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price">Price</label>
+                                <input asp-for="Price" class="form-control" placeholder="Price">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Count">Count</label>
+                                <input asp-for="Count" class="form-control" placeholder="Count">
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@Model.CategoryIds" class="form-label">Categories</label>
+                                <select asp-for="@Model.CategoryIds" class="form-select">
+                                    @foreach (var category in ViewBag.Categories)
+                                    {
+                                        if (Model.ProductCategories.FirstOrDefault(fc => fc.CategoryId == category.Id) != null)
+                                        {
+                                            <option value="@category.Id" selected>@category.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@category.Id">@category.Name</option>
+
+                                        }
+                                    }
+                                </select>
+                                <span class="mt-2 text text-danger" asp-validation-for="@Model.CategoryIds"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@Model.DiscountId" class="form-label">Discount</label>
+                                <select asp-for="@Model.DiscountId" class="form-select" asp-items="@(new SelectList(campaigns,"Id","DiscountPercent"))">
+                                    <option value="0">Select campaign</option>
+                                </select>
+                                <span class="mt-2 text text-danger" asp-validation-for="@Model.DiscountId"></span>
+                            </div>
+
+                             
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-area="admin" asp-controller="slider" asp-action="index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="proImgs d-flex flex-wrap">
+                        @if (Model.ProductImages.Count > 1)
+                        {
+                            foreach (ProductImage item in Model.ProductImages)
+                            {
+                                <div class="proImg d-flex flex-column m-3">
+
+                                    <img style="width:100px;height:100px;object-fit:cover" src="~/img/shop/@item.ImageUrl" />
+
+                                    <a class="btn btn-danger text-white delImgs">Delete</a>
+                                    <input type="hidden" value="@item.Id">
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            foreach (ProductImage item in Model.ProductImages)
+                            {
+                                <div class="proImg d-flex flex-column m-3">
+
+                                    <img style="width:100px;height:100px;object-fit:cover" src="~/img/shop/@item.ImageUrl" />
+
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).on("change",".delImgs",function(){
+
+            $.ajax({
+                url:"/Manage/Product/DeleteImage/",
+                type:"get",
+                data:{
+                    "proImgId":$("#maina").val()
+                },
+                success:function(res){
+                    $("asdna").empty()
+                    $("adnas").append(res)
+                }
+            });
+        });
+
+        $(document).on("click", ".delImgs", function () {
+            let myBtn = $(this)
+
+            $.ajax({
+                url: "/Manage/Product/DeleteImage/",
+                type: "get",
+                data: {
+                    "proImgId": myBtn.next().val()
+                },
+                success: function (res) {
+                    myBtn.parent().remove()
+                    if($(".proImgs").children().length==1){
+                        $(".delImgs").remove()
+                    }
+                }
+            });
+        });
+    </script>
+}

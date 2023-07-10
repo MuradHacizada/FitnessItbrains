@@ -1,0 +1,109 @@
+﻿@model Contact
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Contact us</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/about/index">About</a></li>
+            <li><span>Contact</span></li>
+        </ul>
+    </div>
+</section>
+<section class="contact-section contact-page section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="section-title">
+                    <h1><span>Contact Info</span></h1>
+                </div>
+                <div class="contact-info-box">
+                    <h2>Want to Help Or Have Questions ?</h2>
+                    <ul>
+                        <li>
+                            <div class="icon-box">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <!-- /.icon-box -->
+                            <div class="text-box">
+                                <p>
+                                    14 Tottenham Road, N1 4EP
+                                    <br />London, United Kingdom
+                                </p>
+                            </div>
+                            <!-- /.text-box -->
+                        </li>
+                        <li>
+                            <div class="icon-box">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <!-- /.icon-box -->
+                            <div class="text-box">
+                                <p>Troll Free: +1 212-212-2376</p>
+                            </div>
+                            <!-- /.text-box -->
+                        </li>
+                        <li>
+                            <div class="icon-box">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <!-- /.icon-box -->
+                            <div class="text-box">
+                                <p>FitnessCare@gmail.com</p>
+                            </div>
+                            <!-- /.text-box -->
+                        </li>
+                        <li>
+                            <div class="icon-box">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <!-- /.icon-box -->
+                            <div class="text-box">
+                                <p class="text-justify">
+                                    Week Days&nbsp;&nbsp;&nbsp;&nbsp;: 05:00 – 22:00
+                                    <br />Saturday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 08:00 – 18:00
+                                    <br />Sunday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 08:00 – 12:00
+                                </p>
+                            </div>
+                            <!-- /.text-box -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.contact-info-box -->
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-8">
+                <div class="section-title">
+                    <h1><span>Get In Touch With Us</span></h1>
+                </div>
+                <form method="post"  class="home-contact-form contact-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input asp-for="Name" placeholder="Your Name *">
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="Email" placeholder="Your Email *">
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="Phone" placeholder="Phone">
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="Solution" placeholder="Solution">
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea asp-for="Message" placeholder="Your Requirements"></textarea>
+                        </div>
+                            <button type="submit" class="arrow-push-out-right">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+

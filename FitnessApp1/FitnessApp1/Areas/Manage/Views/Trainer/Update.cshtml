@@ -1,0 +1,50 @@
+﻿@model Trainer
+@{
+    List<Position> positions = (List<Position>)ViewBag.Position;
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic form elements</h4>
+            <p class="card-description">
+                Basic form elements
+            </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input class="form-control" asp-for="Name" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Surname">Name</label>
+                    <input class="form-control" asp-for="Surname" placeholder="Surname">
+                    <span asp-validation-for="Surname"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input class="form-control" asp-for="Description" placeholder="Description">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div>
+                    <img src="~/img/experienced-trainer/@Model.Image" alt="image" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Photo</label>
+                    <input class="form-control" asp-for="Photo" placeholder="Photo">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.PositionId" class="form-label">Position</label>
+                    <select asp-for="@Model.PositionId" class="form-select" asp-items="@(new SelectList(positions,"Id","Name"))">
+                        <option value="0">Select campaign</option>
+                    </select>
+                    <span class="mt-2 text text-danger" asp-validation-for="@Model.PositionId"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

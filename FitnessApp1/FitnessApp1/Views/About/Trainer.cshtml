@@ -1,0 +1,81 @@
+﻿@model AboutVM
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Our Trainers</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><span>Our Trainers</span></li>
+        </ul>
+    </div>
+</section>
+<section class="experienced-trainer-area">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1><span>Our experienced trainers</span></h1>
+        </div>
+        <div class="row">
+            <!--Start single item-->
+            @foreach (Trainer trainer in Model.Trainers)
+            {
+                <!--Start single item-->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img src="~/img/experienced-trainer/@trainer.Image" alt="">
+                            <div class="overlay-content">
+                                <ul>
+                                    <li><i class="fa fa-envelope"></i>@trainer.Email</li>
+                                    <li><i class="fa fa-phone"></i>@trainer.Number</li>
+                                </ul>
+                                <div class="overlay-buttom">
+                                    <div class="trainer-name">
+                                        <div class="name pull-left">
+                                            <h3>@trainer.Name @trainer.Surname</h3>
+                                            <span>@trainer.Position.Name</span>
+                                        </div>
+                                        <div class="icon-holder pull-right">
+                                            <i class="fc-icon ftc-icon-dumbbell"></i>
+                                        </div>
+                                    </div>
+                                    <p>@trainer.Description</p>
+                                    <div class="social-links">
+                                        <a href="@trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                        <a href="@trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                        <a href="@trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                        <a href="@trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="trainer-name">
+                                <div class="name pull-left">
+                                    <h3>@trainer.Name @trainer.Surname</h3>
+                                    <span>@trainer.Position.Name</span>
+                                </div>
+                                <div class="icon-holder pull-right">
+                                    <i class="fc-icon ftc-icon-dumbbell"></i>
+                                </div>
+                            </div>
+                            <p>@trainer.Description</p>
+                            <div class="social-links">
+                                <a href="@trainer.FacebookURL"><i class="fa fa-facebook"></i></a>
+                                <a href="@trainer.TwitterURL"><i class="fa fa-twitter"></i></a>
+                                <a href="@trainer.InstagramURL"><i class="fa fa-instagram"></i></a>
+                                <a href="@trainer.YoutubeURL"><i class="fa fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End single item-->
+            }
+            <!--End single item-->
+        </div>
+    </div>
+</section>

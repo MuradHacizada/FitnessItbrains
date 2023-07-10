@@ -1,0 +1,10 @@
+﻿@model List<Product>
+ 
+@foreach (var item in Model)
+{
+    <li class="list-group-item">
+        <a href="/shop/detail/@item.Id">            
+            <span class="title">@item.Name</span>
+        </a>
+    </li>
+}
