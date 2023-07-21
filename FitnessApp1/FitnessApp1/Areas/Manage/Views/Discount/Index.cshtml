@@ -10,7 +10,7 @@
         <div class="col-sm-12 col-xl-12">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Basic Table</h6>
-                <a asp-area="Manage" asp-controller="Tag" asp-action="Create" class="btn btn-success">Create</a>
+                <a asp-area="Manage" asp-controller="discount" asp-action="Create" class="btn btn-success">Create</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -28,7 +28,7 @@
                                 <th scope="row">@counter</th>
                                 <td>@item.DiscountPercent</td>
                                 <td>
-                                    <a asp-area="Manage" asp-controller="Discount" asp-action="edit" asp-route-id="@item.Id" class="btn btn-warning  ">Edit</a>
+                                    <a asp-area="Manage" asp-controller="Discount" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger  ">Delete</a>
                                 </td>
                                 <td><a asp-area="Manage" asp-controller="Discount" asp-action="edit" asp-route-id="@item.Id" class="btn btn-warning  ">Edit</a></td>
 

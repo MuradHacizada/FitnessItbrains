@@ -19,9 +19,8 @@ namespace FitnessApp1.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(Contact msg)
-        {
-            if (!ModelState.IsValid) return View();
+        public IActionResult Index(Contact? msg)
+        {            
             Contact contact = new Contact
             {
                 Id = msg.Id,

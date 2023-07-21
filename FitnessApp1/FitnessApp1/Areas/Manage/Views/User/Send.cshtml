@@ -1,0 +1,41 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "Send";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ">
+    <div class="row justify-content-center" style="padding-top: 20%;">
+   
+
+        <form method="post" class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <input class="Message form-control" placeholder="Message" cols="60" rows="10" />
+            </div>
+        </form>
+        <div>
+            <a asp-controller="user" asp-action="sendmail" asp-route-id="@Model.Id" class="accept btn btn-success btn-icon-text">
+                <i class="mdi mdi-file-check btn-icon-append"></i>
+                Send
+            </a> 
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".accept").click(function (e) {
+            e.preventDefault();
+            var message = $(".Message").val();
+            var link = $(this).attr("href") + "/?message=" + message
+            fetch(link).then(res => res.json()).then(data => {
+                if (data.status == 200) {
+                    location.href = window.location.origin + "/manage/user"
+                } else {
+
+                }
+            })
+        }) 
+    })
+</script>

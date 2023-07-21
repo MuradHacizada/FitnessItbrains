@@ -10,7 +10,8 @@ using System.Data;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
-    [Area("Manage")] 
+    [Area("Manage")]
+    [Authorize(Roles = "Moderator,Admin")]
 
     public class CategoryController : Controller
     {
@@ -42,7 +43,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
             try
             {
 
-                bool isExist = await _context.Categories.AnyAsync(m => m.Name.Trim() == category.Name.Trim());
+                bool isExist = await _context.Categories.Where(m => !m.IsDeleted).AnyAsync(m => m.Name.Trim() == category.Name.Trim());
 
                 if (isExist)
                 {

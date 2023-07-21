@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Murad\\Desktop\\Fitness\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj": {}
+    "C:\\Users\\Murad\\Desktop\\FitnessItbrains\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Murad\\Desktop\\Fitness\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj": {
+    "C:\\Users\\Murad\\Desktop\\FitnessItbrains\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Murad\\Desktop\\Fitness\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Murad\\Desktop\\FitnessItbrains\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj",
         "projectName": "FitnessApp1",
-        "projectPath": "C:\\Users\\Murad\\Desktop\\Fitness\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj",
+        "projectPath": "C:\\Users\\Murad\\Desktop\\FitnessItbrains\\FitnessApp1\\FitnessApp1\\FitnessApp1.csproj",
         "packagesPath": "C:\\Users\\Murad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Murad\\Desktop\\Fitness\\FitnessApp1\\FitnessApp1\\obj\\",
+        "outputPath": "C:\\Users\\Murad\\Desktop\\FitnessItbrains\\FitnessApp1\\FitnessApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -46,6 +46,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.2.6, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.0.0, )"
@@ -70,7 +74,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             }
           },
           "imports": [

@@ -1,0 +1,81 @@
+﻿@model List<Change>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    int counter = 0;
+    int counte = 0;
+}
+<div class="d-flex">
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-info rounded h-100 p-4">
+                    <h6 class="mb-4">Archive Table</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                counte++;
+                                <tr >
+                                    <th scope="row">@counte</th>
+                                    <td>@item.Trainer.Name</td>
+                                    <td>@item.Message</td>
+                                    <td>@item.Amount</td>
+                                    <td>@item.Role</td>
+                                    <td>@item.ChangedTime.ToString("HH:mm dd,MMMM,yyyy")</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-success rounded h-100 p-4">
+                    <h6 class="mb-4">Order Table</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Order Status</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.Orders)
+                            {
+                                counter++;
+                                <tr>
+                                    <th  scope="row">@counter</th>
+                                    <td>@item.AppUser.FullName</td>
+                                    <td>@item.Date.ToString("HH:mm dd,MMMM,yyyy")</td>
+                                    <td>@item.TotalPrice</td>
+                                    <td>Accepted</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

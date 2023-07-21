@@ -1,15 +1,10 @@
-﻿using FitnessApp1.DAL;
-using FitnessApp1.Models;
+﻿using FitnessApp1.Models;
 using FitnessApp1.Services.Interfaces;
-using FitnessApp1.Utilities.Roles;
 using FitnessApp1.ViewModels.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Net.Mail;
-using System.Net;
-using Microsoft.EntityFrameworkCore;
-using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using System.Net; 
 using FitnessApp1.ViewModels.MailSender;
 
 namespace FitnessApp1.Controllers
@@ -43,7 +38,7 @@ namespace FitnessApp1.Controllers
                 FullName = register.Fullname,
                 UserName = register.Username,
                 Email = register.Email,
-
+                IsActive=true
             };
             IdentityResult result = await _userManager.CreateAsync(user, register.Password);
             if (!result.Succeeded)
@@ -54,11 +49,11 @@ namespace FitnessApp1.Controllers
                 }
                 return View();
             }
-            await _signInManager.SignInAsync(user, isPersistent: true);
+            //await _signInManager.SignInAsync(user, isPersistent: true);
 
 
 
-            await _userManager.AddToRoleAsync(user, "Admin");
+            await _userManager.AddToRoleAsync(user, "Member");
 
 
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -120,8 +115,17 @@ namespace FitnessApp1.Controllers
             {
                 ModelState.AddModelError("", "Username or password is incorrect");
                 return View();
-            } 
-
+            }
+            if (user.EmailConfirmed == false)
+            {
+                ModelState.AddModelError("", "Please Confirm Your Email");
+                return View();
+            }
+            if (user.IsActive == false)
+            {
+                ModelState.AddModelError("", "Your account blocked by Admin,Please contact with admin!");
+                return View();
+            }
 
 
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user.UserName, login.Password, login.RememberMe, true);
@@ -136,7 +140,13 @@ namespace FitnessApp1.Controllers
                 return View();
 
             }
-
+            foreach (var item in await _userManager.GetRolesAsync(user))
+            {
+                if (await _userManager.IsInRoleAsync(user, "Admin"))
+                {
+                    return RedirectToAction("Index", "Dashboard", new { area = "Manage" });
+                }
+            }
             return RedirectToAction("index", "home");
         }
 

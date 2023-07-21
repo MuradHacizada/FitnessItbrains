@@ -7,6 +7,8 @@
         <div class="card-body">
             <h4 class="card-title">Striped Table</h4>
             <a asp-action="Create" asp-controller="Trainer" class="btn btn-success">Create Trainer</a>
+            <a asp-controller="Trainer" asp-action="sendlist" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i></a>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -45,7 +47,7 @@
                                 <td>
                                     @trainer.Surname
                                 </td>
-                               
+
                                 <td class="py-1">
                                     <img src="~/img/experienced-trainer/@trainer.Image" alt="image" />
                                 </td>
@@ -53,9 +55,11 @@
                                     @trainer.Position.Name
                                 </td>
                                 <td>
-                                    <a asp-controller="Trainer" asp-action="Update" asp-route-id="@trainer.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                                    <a asp-controller="Trainer" asp-action="Delete" asp-route-id="@trainer.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
-                                    <a asp-controller="Trainer" asp-action="Detail" asp-route-id="@trainer.Id" class="btn btn-primary"><i class="mdi mdi-open-in-new"></i></a>
+                                    <a asp-controller="Trainer" asp-action="Update" asp-route-id="@trainer.Id" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>
+                                    <a asp-controller="Trainer" asp-action="Delete" asp-route-id="@trainer.Id" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                    <a asp-controller="Trainer" asp-action="send" asp-route-id="@trainer.Id" class="btn btn-success"><i class="fa-solid fa-envelope"></i></a>
+                                    <a asp-controller="Trainer" asp-action="payment" asp-route-id="@trainer.Id" class="btn btn-success"><i class="fa-solid fa-money-check-dollar"></i></a>
+
                                 </td>
                             </tr>
                         }

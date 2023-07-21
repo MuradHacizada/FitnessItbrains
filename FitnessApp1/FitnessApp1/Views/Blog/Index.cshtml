@@ -1,4 +1,4 @@
-﻿@model List<Blog>
+﻿@model PaginateVM<Blog>
 <section class="inner-banner pattern-3">
     <div class="container text-center">
         <h2>Grid View Without Sidebar</h2>
@@ -17,7 +17,7 @@
 <section class="section-padding has-dynamic-divider blog-v2" data-count-element="3">
     <div class="container">
         <div class="row">
-            @foreach (Blog blog in Model)
+            @foreach (Blog blog in Model.Items)
             {
                 <div class="col-md-4 dynamic-divider-element">
                     <div class="single-blog-post">
@@ -52,11 +52,19 @@
         </div>
         <!-- /.row -->
         <ul class="post-pagination list-inline text-center">
-            <li><a href="#"><i class="fa fa-caret-left"></i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+            @if (Model.CurrentPage != 0)
+            {                
+                <li><a asp-controller="blog" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)"><i class="fa fa-caret-left"></i></a></li>
+            }
+
+            @for (int i = 0; i < Model.TotalPage; i++)
+            { 
+                <li class="@(i==Model.CurrentPage?"active":"")"><a class="@(i==Model.CurrentPage?"disabled":"")" asp-controller="blog" asp-action="Index" asp-route-page="@i">@(i + 1)</a></li>
+            } 
+            @if (Model.CurrentPage + 1 != Model.TotalPage)
+            {
+                <li><a asp-controller="blog" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)"><i class="fa fa-caret-right"></i></a></li>
+            }
         </ul>
     </div>
     <!-- /.container -->

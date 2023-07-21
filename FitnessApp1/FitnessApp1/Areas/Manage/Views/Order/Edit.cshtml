@@ -1,6 +1,8 @@
 ﻿@model Order
 @{
     ViewData["Title"] = "Edit";
+    var oke = false;
+    var ok = false;
 }
 
 
@@ -37,16 +39,16 @@
                             {
                                 <td>Gozlenilir</td>
 
+                                ok = true;
                             }
                             else if (Model.Status == true)
                             {
-                                <td>Qebuledilib</td>
-
+                                <td>Qebul edilib</td>
+                                oke = true;
                             }
                             else
                             {
                                 <td>Redd edildi</td>
-
                             }
                             <td>@Model.TotalPrice</td>
 
@@ -101,14 +103,40 @@
                 </div>
             </form>
             <div>
-                <a asp-controller="order" asp-action="Accept" asp-route-id="@Model.Id" class="accept btn btn-success btn-icon-text">
-                    <i class="mdi mdi-file-check btn-icon-append"></i>
-                    Qəbul et
-                </a>
-                <a asp-controller="order" asp-action="Reject" asp-route-id="@Model.Id" class="reject btn btn-danger btn-icon-text">
-                    <i class="mdi mdi-file-check btn-icon-append"></i>
-                    Rədd et
-                </a>
+                @if (ok != true)
+                {
+
+
+                    @if (oke == false)
+                    {
+
+                        <a asp-controller="order" asp-action="Accept" asp-route-id="@Model.Id" class="accept btn btn-success btn-icon-text">
+                            <i class="mdi mdi-file-check btn-icon-append"></i>
+                            Qəbul et
+                        </a>
+                    }
+                    else if (oke == true)
+                    {
+
+                        <a asp-controller="order" asp-action="Reject" asp-route-id="@Model.Id" class="reject btn btn-danger btn-icon-text">
+                            <i class="mdi mdi-file-check btn-icon-append"></i>
+                            Rədd et
+                        </a>
+                    }
+
+                }
+                else
+                {
+
+                    <a asp-controller="order" asp-action="Accept" asp-route-id="@Model.Id" class="accept btn btn-success btn-icon-text">
+                        <i class="mdi mdi-file-check btn-icon-append"></i>
+                        Qəbul et
+                    </a>
+                    <a asp-controller="order" asp-action="Reject" asp-route-id="@Model.Id" class="reject btn btn-danger btn-icon-text">
+                        <i class="mdi mdi-file-check btn-icon-append"></i>
+                        Rədd et
+                    </a>
+                }
             </div>
         </div>
     </div>

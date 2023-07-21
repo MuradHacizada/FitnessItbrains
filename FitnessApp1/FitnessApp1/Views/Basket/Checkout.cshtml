@@ -22,18 +22,19 @@
     <div class="container">
         <div class="row clearfix bottom">
             <!--Default Column-->
-            <div class="col-md-6 col-sm-12 col-xs-12 column default-column">
+            <div class="col-md-8 col-sm-12 col-xs-12 column default-column">
                 <div class="table-outer">
                     <table class="cart-table">
                         <thead class="cart-header">
                             <tr>
                                 <th class="prod-column">PRODUCT</th>
                                 <th>&nbsp;</th>
+                                <th>Name</th>
                                 <th>QUANTITY</th>
                                 <th class="price">Price</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             @foreach (var item in Model.BasketItems.Where(p => p.ProductId != null))
                             {
 
@@ -52,8 +53,10 @@
                                                     }
                                                 }
                                             </figure>
-                                            <h3 class="prod-title padd-top-20">Start From The Art</h3>
                                         </div>
+                                    </td>
+                                    <td class="qty">
+                                        <span>@item.Product.Name</span>
                                     </td>
                                     <td class="qty">
                                         <span>@item.Count</span>
@@ -75,9 +78,8 @@
                             }
                             @foreach (var item in Model.BasketItems.Where(p => p.PackageId != null))
                             {
-
-                                <span style="display:none">
-                                    <p>
+                            <span style="display:none">
+                                <p>
                                         @if (item.PackagPrice == 1)
                                         {
                                             @(totalprice += item.Package.Price)
@@ -93,18 +95,27 @@
                                             @(totalprice += item.Package.PriceLife)
 
                                         }
-                                    </p>
-                                </span>
+                                </p>
+                            </span>
 
-                                <tr>
-                                    <td class="name">
-                                        <span>@item.Package.Title</span>
-                                    </td>
+                            <tr>
+                            <td colspan="2" class="prod-column">
+                                <div class="column-box">
+                                    <figure class="prod-thumb">
 
-                                    <td class=" ">
-                                        <span>@item.Count</span>
-                                    </td>
-                                    <td class="price">
+                                        <a href="#"><img width="70px" src="~/img/health-care-package/@item.Package.Image" alt=""></a>
+
+                                    </figure>
+                                </div>
+                            </td>
+                                <td class="name">
+                                    <span>@item.Package.Title</span>
+                                </td>
+
+                                <td class=" ">
+                                    <span>@item.Count</span>
+                                </td>
+                                <td class="price">
 
                                         @if (item.PackagPrice == 1)
                                         {
@@ -120,8 +131,8 @@
                                             @item.Package.PriceLife
                                         }
 
-                                    </td>
-                                </tr>
+                                </td>
+                            </tr>
                             }
 
                         </tbody>
@@ -129,7 +140,7 @@
                 </div>
             </div>
             <!--Default Column-->
-            <div class="col-md-6 col-sm-12 col-xs-12 column default-column cart-total">
+            <div class="col-md-4 col-sm-12 col-xs-12 column default-column cart-total">
                 <div class="section-title text-left">
                     <h1><span>Cart Totals</span></h1>
                 </div>

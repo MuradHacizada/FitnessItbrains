@@ -1,31 +1,118 @@
 ﻿using FitnessApp1.DAL;
 using FitnessApp1.Models;
 using FitnessApp1.Utilities.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
 
     [Area("Manage")]
-    //[Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "Moderator,Admin")]
+
 
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
-
+        private readonly UserManager<AppUser> _userManager;
         private readonly IWebHostEnvironment _env;
-        public ProductController(AppDbContext context, IWebHostEnvironment env)
+        public ProductController(AppDbContext context, IWebHostEnvironment env, UserManager<AppUser> userManager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            List<Product> Products = _context.Products.Include(p=>p.ProductCategories).ThenInclude(pc=>pc.Category).Include(p=>p.Discount).Include(a => a.ProductImages).ToList();
+            List<Product> Products = _context.Products.Include(p => p.ProductCategories).ThenInclude(pc => pc.Category).Include(p => p.Discount).Include(a => a.ProductImages).ToList();
+
             return View(Products);
         }
+        public ActionResult DownloadProductsCsv()
+        {
+            List<Product> products = _context.Products.Include(p => p.ProductCategories).ThenInclude(pc => pc.Category).Include(p => p.Discount).Include(a => a.ProductImages).ToList();
+
+            var csvContent = new StringBuilder();
+            csvContent.AppendLine("Id,Name,Price,Count,Description,IsDeleted");
+
+            foreach (var product in products)
+            {
+                csvContent.AppendLine($"{product.Id},{product.Name},{product.Price},{product.Count},{product.Description},{product.IsDeleted}");
+            }
+
+            var memoryStream = new MemoryStream();
+            var streamWriter = new StreamWriter(memoryStream, Encoding.UTF8);
+
+            streamWriter.Write(csvContent.ToString());
+            streamWriter.Flush();
+            memoryStream.Position = 0;
+
+            string csvName = "products.csv";
+
+            return File(memoryStream, "text/csv", csvName);
+        }
+        public ActionResult DownloadProductsExcel()
+        {
+
+            List<Product> products = _context.Products.Include(p => p.ProductCategories).ThenInclude(pc => pc.Category).Include(p => p.Discount).Include(a => a.ProductImages).ToList();
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Ürünler");
+
+                worksheet.Cells.LoadFromCollection(products, true);
+
+                var memoryStream = new MemoryStream();
+                package.SaveAs(memoryStream);
+
+                memoryStream.Position = 0;
+                string excelName = "products.xlsx";
+
+                return File(memoryStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+            }
+        }
+
+        public ActionResult DownloadProductsPdf()
+        {
+            List<Product> products = _context.Products.Include(p => p.ProductCategories).ThenInclude(pc => pc.Category).Include(p => p.Discount).Include(a => a.ProductImages).ToList();
+
+
+            using (var document = new PdfDocument())
+            {
+                var page = document.AddPage();
+                var gfx = XGraphics.FromPdfPage(page);
+                var font = new XFont("Arial", 12, XFontStyle.Regular);
+
+                var yPos = 0;
+
+                foreach (var product in products)
+                {
+                    gfx.DrawString($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, Isdeleted: {product.IsDeleted}, Count: {product.Count}",
+
+                        font, XBrushes.Black, new XRect(0, yPos, page.Width, page.Height), XStringFormats.TopLeft);
+                    yPos += 20;
+                }
+
+                var memoryStream = new MemoryStream();
+                document.Save(memoryStream);
+
+                memoryStream.Position = 0;
+                string pdfName = "products.pdf";
+
+                return File(memoryStream, "application/pdf", pdfName);
+            }
+        }
+        #region MyRegion
+
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -50,45 +137,84 @@ namespace FitnessApp1.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product)
         {
+            
             bool isExist = await _context.Products.AnyAsync(x => x.Name == product.Name);
             if (isExist)
             {
                 ModelState.AddModelError("Name", "This Name is already Exist");
             }
+            if (product == null)
+            {
+                ModelState.AddModelError("", "Not be empty");
+                return View();
+            }
+            if (product.Name == null)
+            {
+                ModelState.AddModelError("Name", "");
+                return View();
+            }
+            if (product.Description == null)
+            {
+                ModelState.AddModelError("Description", "");
+                return View();
+            }
+            if (product.Price == null)
+            {
+                ModelState.AddModelError("Price", "");
+                return View();
+            }
+            if (product.Count == null)
+            {
+                ModelState.AddModelError("Count", "");
+                return View();
+            }
             ViewBag.Discounts = _context.Discounts.ToList();
             ViewBag.Categories = _context.Categories.Where(t => !t.IsDeleted).ToList();
-            List<ProductImage> Images = new List<ProductImage>();
-            foreach (IFormFile item in product.Photo)
+            if (product.Photo == null)
+            {
+                ModelState.AddModelError("", "Choose a photo!");
+                return View();
+            }
+            else
             {
 
-                if (item == null)
+                List<ProductImage> Images = new List<ProductImage>();
+                foreach (IFormFile item in product.Photo)
                 {
-                    ModelState.AddModelError("Photo", "Image can not be null");
-                    return View();
+
+                    if (item == null)
+                    {
+                        ModelState.AddModelError("Photo", "Image can not be null");
+                        return View();
+                    }
+                    if (!item.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photo", "Pls Select Image");
+                        return View();
+                    }
+                    if (!item.CheckFileSize(2000))
+                    {
+                        ModelState.AddModelError("Photo", "Max 2mb");
+                        return View();
+                    }
+                    string folder = Path.Combine(_env.WebRootPath, "img/shop");
+                    ProductImage productImage = new ProductImage
+                    {
+                        ImageUrl = await item.CreateFileAsync(_env.WebRootPath, "img/shop"),
+                    };
+                    Images.Add(productImage);
                 }
-                if (!item.CheckFileType("image/"))
-                {
-                    ModelState.AddModelError("Photo", "Pls Select Image");
-                    return View();
-                }
-                if (!item.CheckFileSize(2000))
-                {
-                    ModelState.AddModelError("Photo", "Max 2mb");
-                    return View();
-                }
-                string folder = Path.Combine(_env.WebRootPath, "img/shop");
-                ProductImage productImage = new ProductImage
-                {
-                    ImageUrl = await item.CreateFileAsync(_env.WebRootPath, "img/shop"),
-                };
-                Images.Add(productImage);
+                product.ProductImages = Images;
+                product.ProductImages[0].IsMain = true;
             }
-            product.ProductImages = Images;
-            product.ProductImages[0].IsMain = true;
-             
+
+
+
+
             product.IsDeleted = false;
 
             product.ProductCategories = new List<ProductCategory>();
+
             if (product.CategoryIds != null)
             {
                 foreach (var catid in product.CategoryIds)
@@ -101,9 +227,43 @@ namespace FitnessApp1.Areas.Manage.Controllers
                     _context.ProductCategories.Add(pTag);
                 }
             }
+
             _context.Products.AddAsync(product);
+      
+
             await _context.SaveChangesAsync();
+            List<AppUser> subscribes = _userManager.Users.ToList();
+            foreach (var sub in subscribes)
+            {
+                string link = "https://localhost:7208/shop/detail/" + product.Id;
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("6h7mk8y@code.edu.az", "Fitness App");
+                mail.To.Add(new MailAddress(sub.Email));
+
+
+                mail.Subject = "Fitness App";
+                string body = string.Empty;
+
+                using (StreamReader reader = new StreamReader("wwwroot/MailTemplate/Product.html"))
+                {
+                    body = reader.ReadToEnd();
+                }
+
+                string about = $"<strong>Hello</strong><br /> a new <strong>{product.Name} ${product.Price}</strong> product added to our shop <br/>click the link!";
+                body = body.Replace("{{link}}", link);
+                mail.Body = body.Replace("{{about}}", about);
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+
+                smtp.Credentials = new NetworkCredential("6h7mk8y@code.edu.az", "fsxwvuxfycmlctfo");
+                smtp.Send(mail);
+            }
             return RedirectToAction(nameof(Index));
+
         }
 
         public IActionResult Edit(int? id)
@@ -115,7 +275,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
             ViewBag.Categories = _context.Categories.Where(t => !t.IsDeleted).ToList();
             ViewBag.Discounts = _context.Discounts.ToList();
 
-            Product b = _context.Products.Include(x=>x.Discount).Include(x=>x.ProductCategories).ThenInclude(x=>x.Category).Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
+            Product b = _context.Products.Include(x => x.Discount).Include(x => x.ProductCategories).ThenInclude(x => x.Category).Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
             if (b == null)
             {
                 return NotFound();
@@ -142,7 +302,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
 
             #region MyRegion
             Product dbProduct = await _context.Products.Include(p => p.ProductImages).Include(p => p.ProductCategories)
-                    .ThenInclude(t => t.Category).Include(p=>p.Discount)
+                    .ThenInclude(t => t.Category).Include(p => p.Discount)
                     .Where(c => c.IsDeleted == false)
                     .FirstOrDefaultAsync(b => b.Id == product.Id);
             #endregion
@@ -321,5 +481,6 @@ namespace FitnessApp1.Areas.Manage.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        #endregion
     }
 }

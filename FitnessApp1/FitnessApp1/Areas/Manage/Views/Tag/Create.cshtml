@@ -8,12 +8,13 @@
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
             <div class="bg-secondary rounded h-100 p-4">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
                 <form method="post" enctype="multipart/form-data">
 
                     <div class="mb-3">
                         <label asp-for="Name" class="form-label">Name</label>
-                        <input asp-for="Name" class="form-control">
+                        <input asp-for="Name" required class="form-control">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -35,9 +35,18 @@
                         <img src="~/img/resources/logo.png" alt="Awesome Image" id="skin-logo-img" />
                     </a>
                     <ul class="menuzord-menu">
-                        <li>
-                            <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index" class="flip-flop-btn"><span data-hover="HOME">HOME</span></a>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index" class="flip-flop-btn"><span data-hover="MANAGEs">Manage</span></a>
+                            </li>
+                        }
+                        else if (User.IsInRole("Moderator"))
+                        {
+                            <li>
+                                <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index" class="flip-flop-btn"><span data-hover="HOME">Manage</span></a>
+                            </li>
+                        }
                         <li>
                             <a asp-controller="HOME" asp-action="Index" class="flip-flop-btn"><span data-hover="HOME">HOME</span></a>
                         </li>
@@ -60,8 +69,6 @@
                         <li><a asp-controller="CONTACT" asp-action="Index" class="flip-flop-btn"><span data-hover="CONTACT">CONTACT</span></a></li>
                         @if (!User.Identity.IsAuthenticated)
                         {
-
-
                             <li><a asp-controller="Account" asp-action="Register">Register</a></li>
                             <li><a asp-controller="Account" asp-action="Login">Login</a></li>
                         }

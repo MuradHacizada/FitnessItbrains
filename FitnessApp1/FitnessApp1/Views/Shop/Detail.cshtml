@@ -1,5 +1,9 @@
-﻿@model DetailsVM
-
+﻿@inject FitnessApp1.Services.CategoryService categoriess
+@model DetailsVM
+@{
+    IEnumerable<Category> categories = await categoriess.GetAll();
+    IEnumerable<Package> packages = await categoriess.GetPackage();
+}
 <section class="inner-banner pattern-3">
     <div class="container text-center">
         <h2>Shop Details</h2>
@@ -11,7 +15,7 @@
         <ul>
             <li><a href="/home/index">Home</a></li>
             <li><a href="/shop/index">Shop</a></li>
-            <li><span>Shop Details</span></li>
+            <li><span>Shop Details </span></li>
         </ul>
     </div>
 </section>
@@ -50,12 +54,44 @@
                                 <h2>@Model.Product.Name </h2>
                                 <div class="review-box">
                                     <ul class="list-inline">
-
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
+                                        @if (ViewBag.StarCount == 1)
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
+                                        else if (ViewBag.StarCount == 2)
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
+                                        else if (ViewBag.StarCount == 3)
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
+                                        else if (ViewBag.StarCountr == 4)
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
+                                        else if (ViewBag.StarCount == 5)
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
+                                        else
+                                        {
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        }
                                     </ul>
                                     <span>(@ViewBag.Count Customers Review)</span>
                                 </div>
@@ -182,7 +218,7 @@
 
                                             <div class="single-review-box">
                                                 <div class="img-box">
-                                                    <img src="~/img/shop/review-thumb-1.jpg" alt="Awesome Image" />
+                                                    <img src="~/img/user.png" />
                                                 </div>
                                                 <div class="text-box">
                                                     <div class="top-box clearfix">
@@ -380,10 +416,10 @@
                         </div>
                         <!-- /.title -->
                         <ul>
-                            @foreach (var item in Model.Categories)
+                            @foreach (var item in categories)
                             {
 
-                                <li><a href="package-v2.html">@item.Name<span>(@item.ProductCategories.Count)</span></a></li>
+                                <li><a href="/shop/ProductCategory/@item.Id">@item.Name<span>(@item.ProductCategories.Count)</span></a></li>
                             }
                         </ul>
                     </div>
@@ -394,188 +430,36 @@
                         </div>
                         <!-- /.title -->
                         <ul class="recent-news">
-                            <li>
-                                <div class="box">
-                                    <div class="overlay">
-                                        <img src="~/img/footer/recent-news/1.jpg" alt="">
-                                        <div class="content-box">
-                                            <div class="icon-holder">
-                                                <i class="fc-icon ftc-icon-dumbbell"></i>
-                                            </div>
-                                            <div class="text">
-                                                <p>Workout News</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <a href="blog-details-sidebar.html">
-                                        <p>
-                                            7 Best shoulder exer-
-                                            <br>cised you’re not doing
-                                        </p>
-                                    </a>
-                                    <span>February 07, 2016</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <div class="overlay">
-                                        <img src="~/img/footer/recent-news/2.jpg" alt="">
-                                        <div class="content-box">
-                                            <div class="icon-holder">
-                                                <i class="fc-icon ftc-icon-dumbbell"></i>
-                                            </div>
-                                            <div class="text">
-                                                <p>Workout News</p>
+                            @foreach (var item in packages.Take(3))
+                            {
+
+                                <li>
+                                    <div class="box">
+                                        <div class="overlay">
+                                            <img src="~/img/health-care-package/@item.Image" alt="">
+                                            <div class="content-box">
+                                                <div class="icon-holder">
+                                                    <i class="fc-icon ftc-icon-dumbbell"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <p>@item.Title</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="content">
-                                    <a href="blog-details-sidebar.html">
-                                        <p>
-                                            8 Things You Should
-                                            <br> Never Do On Chest Day
-                                        </p>
-                                    </a>
-                                    <span>February 12, 2016</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <div class="overlay">
-                                        <img src="~/img/footer/recent-news/3.jpg" alt="">
-                                        <div class="content-box">
-                                            <div class="icon-holder">
-                                                <i class="fc-icon ftc-icon-dumbbell"></i>
-                                            </div>
-                                            <div class="text">
-                                                <p>Workout News</p>
-                                            </div>
-                                        </div>
+                                    <div class="content">
+                                        <a href="/package/detail/@item.Id">
+                                            <p>
+                                                7 Best shoulder exer-
+                                                <br>cised you’re not doing
+                                            </p>
+                                        </a>
+                                        <span>@DateTime.Now.ToString("dd MM yyy")</span>
                                     </div>
-                                </div>
-                                <div class="content">
-                                    <a href="blog-details-sidebar.html">
-                                        <p>
-                                            Louis Williams Instinc-
-                                            <br>tive Back Workout
-                                        </p>
-                                    </a>
-                                    <span>February 17, 2016</span>
-                                </div>
-                            </li>
+                                </li>
+                            }
                         </ul>
                     </div>
-                    <!-- /.single-sidebar -->
-                    <div class="single-sidebar package-slider-widget">
-                        <div class="title">
-                            <h3>packages Slider</h3>
-                        </div>
-                        <!-- /.title -->
-                        <div id="package-slider-widget-wrapper" class="carousel slide offer-going-package-menu" data-ride="carousel">
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-
-                                <div class="item active">
-                                    <div class="single-offer-going-pack">
-                                        <div class="img-box">
-                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
-                                            <div class="box">
-                                                <div class="overlay">
-                                                    <div class="content">
-                                                        <h4>50% Offer</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-box">
-                                            <div class="icon-box">
-                                                <div class="box">
-                                                    <i class="fc-icon ftc-icon-running"></i>
-                                                </div>
-                                            </div>
-                                            <div class="content-box">
-                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
-                                                <ul>
-                                                    <li><a href="#">06 Month Training</a></li>
-                                                    <li><a href="#">30 Min</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item ">
-                                    <div class="single-offer-going-pack">
-                                        <div class="img-box">
-                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
-                                            <div class="box">
-                                                <div class="overlay">
-                                                    <div class="content">
-                                                        <h4>50% Offer</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-box">
-                                            <div class="icon-box">
-                                                <div class="box">
-                                                    <i class="fc-icon ftc-icon-running"></i>
-                                                </div>
-                                            </div>
-                                            <div class="content-box">
-                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
-                                                <ul>
-                                                    <li><a href="#">06 Month Training</a></li>
-                                                    <li><a href="#">30 Min</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item ">
-                                    <div class="single-offer-going-pack">
-                                        <div class="img-box">
-                                            <img src="~/img/resources/offer-menu-1.jpg" alt="Awesome Image" />
-                                            <div class="box">
-                                                <div class="overlay">
-                                                    <div class="content">
-                                                        <h4>50% Offer</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-box">
-                                            <div class="icon-box">
-                                                <div class="box">
-                                                    <i class="fc-icon ftc-icon-running"></i>
-                                                </div>
-                                            </div>
-                                            <div class="content-box">
-                                                <a href="single-package.html"><h3>Fat Loss <span>($150&nbsp;&nbsp;<b>$75</b>)</span></h3></a>
-                                                <ul>
-                                                    <li><a href="#">06 Month Training</a></li>
-                                                    <li><a href="#">30 Min</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#package-slider-widget-wrapper" data-slide-to="0" class="active"></li>
-                                <li data-target="#package-slider-widget-wrapper" data-slide-to="1"></li>
-                                <li data-target="#package-slider-widget-wrapper" data-slide-to="2"></li>
-                            </ol>
-                        </div>
-                    </div>
-                    <!-- /.single-sidebar -->
-                    <div class="single-sidebar call-to-action-widget">
-                        <img src="~/img/resources/home-offerr.jpg" alt="Awesome Image" />
-                    </div>
-                    <!-- /.single-sidebar -->
                 </div>
                 <!-- /.sidebar-wrapper -->
             </div>

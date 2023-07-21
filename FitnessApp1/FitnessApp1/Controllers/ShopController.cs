@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 
 namespace FitnessApp1.Controllers
 {
@@ -57,12 +56,24 @@ namespace FitnessApp1.Controllers
             {
                 return RedirectToAction("index", "error");
             }
+
+            List<Comment> comments = _context.Comments.Where(c => c.ProductId == id).ToList();
+            var averageStar = comments.Where(c => c.Star != null).Average(c => c.Star);
+            if (averageStar==null)
+            {
+                ViewBag.StarCount = 5;
+
+            }
+            else
+            {
+            ViewBag.StarCount =(int)averageStar;
+                            }
             List<Category> categories = _context.Categories.Include(c => c.ProductCategories).ThenInclude(bc => bc.Product).Where(b => b.ProductCategories.Any(bc => bc.ProductId == id)).ToList();
 
             List<Product> relatedProducts = new List<Product>();
             foreach (var item in categories)
             {
-                relatedProducts = _context.Products.Include(b => b.Discount).Include(a => a.ProductImages).Include(b => b.ProductCategories).ThenInclude(bt => bt.Category).Where(b => b.ProductCategories.Any(bc => bc.CategoryId == item.Id && bc.ProductId != product.Id)).ToList();
+                relatedProducts = _context.Products.Include(b => b.Discount).Include(a => a.ProductImages).Include(b => b.ProductCategories).ThenInclude(bt => bt.Category).Where(b => !b.IsDeleted && b.ProductCategories.Any(bc => bc.CategoryId == item.Id)).ToList();
             }
             DetailsVM detailsVM = new DetailsVM()
             {
@@ -70,8 +81,8 @@ namespace FitnessApp1.Controllers
                 Categories = categories,
                 Product = product,
             };
-            ViewBag.Comments = _context.Comments.Include(c => c.Product).Include(c => c.AppUser).Where(c => c.ProductId == id).ToList();
-            ViewBag.Count = _context.Comments.Include(c => c.Product).Include(c => c.AppUser).Where(c => c.ProductId == id).ToList().Count();
+            ViewBag.Comments = _context.Comments.Include(c => c.Product).Include(c => c.AppUser).Where(c => c.ProductId == id && c.IsAccess == true).ToList();
+            ViewBag.Count = _context.Comments.Include(c => c.Product).Include(c => c.AppUser).Where(c => c.ProductId == id && c.IsAccess == true).ToList().Count();
 
             ViewBag.RelatedProducts = relatedProducts;
             return View(detailsVM);
@@ -89,7 +100,7 @@ namespace FitnessApp1.Controllers
             {
 
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                if (user == null) { return RedirectToAction("login", "account"); }
+                if (user == null && user.IsActive == false) { return RedirectToAction("login", "account"); }
                 if (!_context.Products.Any(f => f.Id == comment.ProductId)) return NotFound();
                 Comment newComment = new Comment
                 {
@@ -114,7 +125,7 @@ namespace FitnessApp1.Controllers
         public async Task<IActionResult> DeleteComment(int id)
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null) { return RedirectToAction("login", "account"); }
+            if (user == null && user.IsActive == false) { return RedirectToAction("login", "account"); }
 
             if (!ModelState.IsValid) return RedirectToAction("Index", "Shop");
             if (!_context.Comments.Any(c => c.Id == id && c.IsAccess == true && c.AppUserId == user.Id)) return NotFound();
@@ -122,6 +133,13 @@ namespace FitnessApp1.Controllers
             _context.Comments.Remove(comment);
             _context.SaveChanges();
             return RedirectToAction("Detail", "Shop", new { id = comment.ProductId });
+        }
+
+        public IActionResult ProductCategory(int id)
+        {
+            List<Product> products = _context.Products.Include(b => b.ProductImages).Include(b => b.Discount).Include(b => b.ProductCategories).ThenInclude(b => b.Category).Include(b => b.Comments).Where(c => !c.IsDeleted && c.ProductCategories.Any(bt => bt.CategoryId == id)).ToList();
+            ViewBag.Categories = _context.Categories.Include(c => c.ProductCategories).ThenInclude(c => c.Product).ToList();
+            return View(products);
         }
     }
 }

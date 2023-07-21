@@ -47,7 +47,7 @@ namespace FitnessApp1
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
-            //builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<CategoryService>();
 
 
 

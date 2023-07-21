@@ -1,12 +1,15 @@
 ﻿using FitnessApp1.DAL;
 using FitnessApp1.Models;
 using FitnessApp1.Utilities.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
     [Area("Manage")]
 
+    [Authorize(Roles = "Moderator,Admin")]
 
     public class BlogController : Controller
     {

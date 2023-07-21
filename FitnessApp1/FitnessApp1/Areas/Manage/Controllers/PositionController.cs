@@ -1,11 +1,15 @@
 ﻿using FitnessApp1.DAL;
 using FitnessApp1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Moderator,Admin")]
+
     public class PositionController : Controller
     {
         private readonly AppDbContext _context;

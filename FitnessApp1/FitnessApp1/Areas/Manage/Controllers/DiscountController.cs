@@ -1,11 +1,13 @@
 ﻿using FitnessApp1.DAL;
 using FitnessApp1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Moderator,Admin")]
     public class DiscountController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,8 +23,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
             return View(discounts);
 
         }
-
-        //[Authorize(Roles = "Admin")]
+         
         [HttpGet]
         public IActionResult Create()
         {
@@ -34,10 +35,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Discount discount)
         {
             List<Discount> percent = _context.Discounts.Where(hs => hs.DiscountPercent == discount.DiscountPercent).ToList();
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+          
             foreach (var item in percent)
             {
                 if (item.DiscountPercent == discount.DiscountPercent)

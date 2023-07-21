@@ -7,20 +7,21 @@
                 
             </div>
             <div class="card-body">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <form method="post">
                     <div class="mb-3 form-group">
                         <label asp-for="Name" class="form-label" for="basic-default-fullname">Name</label>
-                        <input asp-for="Name" class="form-control"/>
+                        <input asp-for="Name" required class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="mb-3 form-group">
                         <label asp-for="Description" class="form-label">Description</label>
-                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <textarea asp-for="Description" required class="form-control"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="mb-3 form-group">
                         <label asp-for="Icon" class="form-label">Icon</label>
-                        <textarea asp-for="Icon" class="form-control"></textarea>
+                        <textarea asp-for="Icon" required class="form-control"></textarea>
                         <span asp-validation-for="Icon" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

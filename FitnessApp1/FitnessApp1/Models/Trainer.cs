@@ -10,6 +10,7 @@ namespace FitnessApp1.Models
         public string Description { get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
+        public decimal Salary { get; set; }
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }

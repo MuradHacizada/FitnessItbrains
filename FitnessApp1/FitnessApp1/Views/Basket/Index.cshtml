@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.BasketItems)
+                        @foreach (var item in Model.BasketItems.Where(b=>b.PackageId==null))
                         {
                             <span style="display:none">@(totalprice += item.Product.DiscountId == null ? item.Count * item.Product.Price : item.Count * item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100)</span>
 
@@ -115,6 +115,95 @@
                                 <td class="remove"><a asp-controller="basket" asp-action="remove" asp-route-id="@item.Product.Id" class="remove-btn delete"><span class="fa fa-trash-o"></span> Remove</a></td>
                             </tr>
                         }
+                        @foreach (var item in Model.BasketItems.Where(b=>b.ProductId==null))
+                        {
+
+                            @if (item.PackagPrice == 1)
+                            {
+                                <span style="display:none">@(totalprice += item.Count * item.Package.Price)</span>
+
+                            }
+
+                            @if (item.PackagPrice == 2)
+                            {
+                                <span style="display:none">@(totalprice += item.Count * item.Package.PriceYear)</span>
+
+                            }
+                            @if (item.PackagPrice == 3)
+                            {
+                                <span style="display:none">@(totalprice += item.Count * item.Package.PriceLife)</span>
+
+                            }
+
+                            <tr>
+                                <td colspan="2" class="prod-column">
+                                    <div class="column-box">
+                                        <figure class="prod-thumb">
+
+                                            <a href="#"><img src="~/img/health-care-package/@item.Package.Image" width="70px" alt=""></a>
+
+                                        </figure>
+                                            <h3 class="prod-title padd-top-20">@item.Package.Title</h3>
+
+                                    </div>
+                                </td>
+                                <td class="qty">
+                                    <div class="quickview-plus-minus d-flex justify-content-center align-items-center pt-4">
+                                        <div class="cart-plus-minus border d-flex justify-content-around align-items-center w-80">
+                                            <span class="bg-transparent inp-value border-0 w-24 text-white" style="outline: none;">@item.Count</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="unit-price">
+                                    <div class="available-info">
+                                        <span class="icon fa fa-check"></span> Item(s)
+                                        <br>Avilable Now
+                                    </div>
+                                </td>
+                                <td class="price">
+                                    <span>
+                                        $ @if (item.PackagPrice == 1)
+                                        {
+                                            @item.Package.Price
+                                        }
+
+                                        @if (item.PackagPrice == 2)
+                                        {
+                                            @item.Package.PriceYear
+                                        }
+                                        @if (item.PackagPrice == 3)
+                                        {
+                                            @item.Package.PriceLife
+                                        }
+                                    </span>
+                                </td>
+                                <td class="sub-total">
+
+                                    <span>
+                                        $
+
+                                        @if (item.PackagPrice == 1)
+                                        {
+                                            @item.Package.Price
+                                        }
+
+                                        @if (item.PackagPrice == 2)
+                                        {
+                                            @item.Package.PriceYear
+                                        }
+                                        @if (item.PackagPrice == 3)
+                                        {
+                                            @item.Package.PriceLife
+                                        }
+
+
+                                    </span>
+
+                                </td>
+                                <td class="remove"><a asp-controller="basket" asp-action="RemovePackage" asp-route-id="@item.Package.Id" class="remove-btn delete"><span class="fa fa-trash-o"></span> Remove</a></td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>

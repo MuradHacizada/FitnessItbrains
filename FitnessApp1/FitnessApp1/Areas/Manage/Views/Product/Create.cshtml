@@ -1,7 +1,7 @@
 ﻿@model Product
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
     List<Category> categories = (List<Category>)ViewBag.Categories;
     List<Discount> campaigns = (List<Discount>)ViewBag.Discounts;
 
@@ -13,31 +13,40 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                         <form class="forms-sample" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label asp-for="Photo">Photo</label>
-                                <input asp-for="Photo" class="form-control" placeholder="Photo">
+                                <label asp-for="Photo" class="form-label">Photo</label>
+                                <input asp-for="Photo" required accept="image/*" class="form-control">
+                                <span asp-validation-for="@Model.Photo" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Name">Name</label>
-                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <input asp-for="Name" required class="form-control" placeholder="Name">
+                                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+
                             </div>
                             <div class="form-group">
                                 <label asp-for="Description">Description</label>
-                                <input asp-for="Description" class="form-control" placeholder="Description">
+                                <input asp-for="Description" required class="form-control" placeholder="Description">
+                                <span asp-validation-for="@Model.Description" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Price">Price</label>
-                                <input asp-for="Price" class="form-control" placeholder="Price">
+                                <input asp-for="Price" required class="form-control" placeholder="Price">
+                                <span asp-validation-for="@Model.Price" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Count">Count</label>
-                                <input asp-for="Count" class="form-control" placeholder="Count">
+                                <input asp-for="Count" required class="form-control" placeholder="Count">
+                                <span asp-validation-for="@Model.Count" class="text-danger"></span>
                             </div>
                             <div class="form-group col-md-12">
                                 <label asp-for="@Model.CategoryIds">Kateqoriyalar?</label>
-                                <select class="form-control" asp-for="@Model.CategoryIds" asp-items="@(new SelectList(categories,"Id","Name"))">
+                                <select class="form-control" asp-for="@Model.CategoryIds" asp-items="@(new SelectList(categories,"Id","Name"))">                                 
                                 </select>
+                                <span asp-validation-for="@Model.CategoryIds" class="text-danger"></span>
+
                             </div>
                             <div class="form-group col-md-3">
                                 <label asp-for="@Model.DiscountId">Discount</label>
@@ -45,7 +54,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <a asp-area="admin" asp-controller="slider" asp-action="index" class="btn btn-light">Cancel</a>
+                            <a asp-area="admin" asp-controller="slider" asp-action="index" class="btn btn-danger">Cancel</a>
                         </form>
                     </div>
                 </div>
@@ -54,3 +63,6 @@
     </div>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

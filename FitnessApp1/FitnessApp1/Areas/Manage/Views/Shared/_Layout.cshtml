@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Majestic Admin</title>
     <!-- plugins:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  referrerpolicy="no-referrer" />
     <link rel="stylesheet" src="~/admin/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" src="~/admin/vendors/base/vendor.bundle.base.css">
     <!-- endinject -->
@@ -16,7 +17,6 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="~/admin/css/style.css">
     <link rel="stylesheet" href="~/admin/css/main.css">
-
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
 </head>
@@ -195,13 +195,24 @@
                             <span class="menu-title">Category</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Manage" asp-controller="comment" asp-action="Index">
+                            <i class="mdi mdi-view-headline menu-icon"></i>
+                            <span class="menu-title">Comment</span>
+                        </a>
+                    </li>
 
-                    
 
                     <li class="nav-item">
                       <a class="nav-link" asp-area="Manage" asp-controller="Blog" asp-action="Index" >
                             <i class="mdi mdi-view-headline menu-icon"></i>
                             <span class="menu-title">Blog</span>
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" asp-area="Manage" asp-controller="archive" asp-action="Index" >
+                            <i class="mdi mdi-view-headline menu-icon"></i>
+                            <span class="menu-title">Archive</span>
                         </a>
                     </li>
 
@@ -254,6 +265,12 @@
                         <a class="nav-link" asp-area="Manage" asp-controller="Order" asp-action="Index">
                             <i class="mdi mdi-view-headline menu-icon"></i>
                             <span class="menu-title">Order</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Manage" asp-controller="User" asp-action="Index">
+                            <i class="mdi mdi-view-headline menu-icon"></i>
+                            <span class="menu-title">Users</span>
                         </a>
                     </li>
                     <li class="nav-item">

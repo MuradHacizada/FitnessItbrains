@@ -7,6 +7,7 @@ namespace FitnessApp1.Models
         public string FullName { get; set; }
         public List<Comment> Comments { get; set; }
         public bool IsRememberMe { get; set; }
+        public bool IsActive { get; set; } = true;
         public List<BasketItem> BasketItems { get; set; }
     }
 }

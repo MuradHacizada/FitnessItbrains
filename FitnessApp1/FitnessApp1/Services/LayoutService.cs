@@ -3,6 +3,7 @@ using FitnessApp1.Models;
 using FitnessApp1.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace FitnessApp1.Services
 {
@@ -33,20 +34,44 @@ namespace FitnessApp1.Services
                 List<BasketItem> basketItems = _context.BasketItems.Include(b => b.AppUser).Where(b => b.AppUserId == user.Id).ToList();
                 foreach (BasketItem item in basketItems)
                 {
-                    Product book = _context.Products.Include(f => f.Discount).Include(p=>p.ProductImages).FirstOrDefault(f => f.Id == item.ProductId);
+                    Product book = _context.Products.Include(f => f.Discount).Include(f => f.Comments).Include(p => p.ProductImages).FirstOrDefault(f => f.Id == item.ProductId);
+                    BasketItemVM basketItemVM = new BasketItemVM();
                     if (book != null)
                     {
-                        BasketItemVM basketItemVM = new BasketItemVM
-                        {
-                            Product = book,
-                            Count = item.Count
-                        };
+                        basketItemVM.Product = book;
+                        basketItemVM.Count = item.Count;
                         basketItemVM.Price = basketItemVM.Product.DiscountId == null ? basketItemVM.Product.Price : basketItemVM.Product.Price * (100 - basketItemVM.Product.Discount.DiscountPercent) / 100;
-
-                        basketData.BasketItems.Add(basketItemVM);
                         basketData.Count++;
                         basketData.TotalPrice += basketItemVM.Price * basketItemVM.Count;
                     }
+                    Package package = _context.Packages.FirstOrDefault(f => f.Id == item.PackageId);
+                    if (package != null)
+                    {
+
+                        basketItemVM.Package = package;
+                        basketItemVM.Count = item.Count;
+
+                        if (item.PackagPrice == 1)
+                        {
+                            basketItemVM.Price += basketItemVM.Package.Price;
+
+                        }
+                        if (item.PackagPrice == 2)
+                        {
+                            basketItemVM.Price += basketItemVM.Package.PriceYear;
+
+                        }
+                        if (item.PackagPrice == 3)
+                        {
+                            basketItemVM.Price += basketItemVM.Package.PriceLife;
+
+                        }
+
+                        basketData.Count++;
+                        basketData.TotalPrice += basketItemVM.Price;
+                    }
+                    basketData.BasketItems.Add(basketItemVM);
+
                 }
             }
 

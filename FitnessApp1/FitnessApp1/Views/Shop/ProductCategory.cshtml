@@ -1,0 +1,203 @@
+﻿@inject FitnessApp1.Services.CategoryService categoriess
+
+@model List<Product>
+@{
+    ViewData["Title"] = "ProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Category> categories = await categoriess.GetAll();
+    IEnumerable<Package> packages = await categoriess.GetPackage();
+}
+<section class="inner-banner pattern-3">
+    <div class="container text-center">
+        <h2>Shop Products with sidebar</h2>
+        <p>We offer Fitness & Yoga services since 1996</p>
+    </div>
+</section>
+<section class="bread-cumb">
+    <div class="container text-center">
+        <ul>
+            <li><a href="/home/index">Home</a></li>
+            <li><a href="/shop/index">Shop</a></li>
+            <li><span>Shop Products with sidebar</span></li>
+        </ul>
+    </div>
+</section>
+<section class="sidebar-pages popular-shop-item">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-xs-12">
+                <div class="sidebar-page-content section-padding pb0">
+                    <div class="inner-page-wrapper section-padding pt0 white-bg">
+                        <div class="row meta-info">
+                            <div class="col-md-12">
+                                <p class="number-of-product pull-left">Showing  @Model.Count() Results</p>
+                                <p class="d-none" style="display:none;" id="getvalue">@ViewBag.id</p>
+
+                                <div class="select-box pull-right">
+                                    <select class="selectpicker" id="select">
+                                        <option value="1">Default</option>
+                                        <option value="5">Low to high</option>
+                                        <option value="4">High to low</option>
+                                        <option value="3">A to Z</option>
+                                        <option value="2">Z to A</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach (Product product in Model)
+                            {
+                                <div class="col-md-6 col-sm-6 ">
+                                    <div class="single-product-item text-center">
+                                        <div class="img-holder">
+                                            @foreach (var item in product.ProductImages)
+                                            {
+                                                @if (item.IsMain)
+                                                {
+
+                                                    <img alt="" src="~/img/shop/@item.ImageUrl">
+                                                }
+
+                                            }
+                                            <div class="overlay">
+                                                <div class="icon-holder">
+                                                    <ul>
+                                                        <li><a href="/basket/addbasket/@product.Id"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="single-shop.html"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="single-shop.html"><i class="fa fa-search-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.icon-holder -->
+                                            </div>
+                                            <!-- /.overlay -->
+                                        </div>
+                                        <!-- /.img-holder -->
+                                        <div class="title">
+                                            <a href="/shop/detail/@product.Id"><h3>@product.Name </h3></a>
+
+                                            <h2>
+                                                @if (product.DiscountId != null)
+                                                {
+                                                    <del class="before-rate">$@product.Price</del>
+
+                                                }
+                                                @if (product.DiscountId != null)
+                                                {
+                                                    @(product.Price * (100 - product.Discount.DiscountPercent) / 100)
+                                                }
+                                                else
+                                                {
+                                                    <span>$@product.Price</span>
+
+                                                }
+
+                                            </h2>
+                                        </div>
+                                        <!-- /.title -->
+                                    </div>
+                                    <!-- /.single-product-item text-center -->
+                                </div>
+                                <!-- /.col-md-6 -->
+                            }
+
+                        </div> 
+                    </div>
+                    <!-- /.inner-page-wrapper -->
+                </div>
+                <!-- /.sidebar-page-content -->
+            </div>
+            <!-- /.col-md-9 -->
+            <div class="col-lg-3 col-md-4 col-xs-12">
+                <div class="sidebar-wrapper section-padding">
+
+                    <div class="single-sidebar category-widget">
+                        <div class="title">
+                            <h3>Categories</h3>
+                        </div>
+                        <!-- /.title -->
+                        <ul>
+                            @foreach (var item in categories)
+                            {
+
+                                <li><a href="/shop/ProductCategory/@item.Id">@item.Name <span>(@item.ProductCategories.Count())</span></a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    <!-- /.single-sidebar -->
+                    <div class="single-sidebar post-widget">
+                        <div class="title">
+                            <h3>Recent Diet tips</h3>
+                        </div>
+                        <!-- /.title -->
+                        <ul class="recent-news">
+                            @foreach (var item in packages.Take(3))
+                            {
+
+                                <li>
+                                    <div class="box">
+                                        <div class="overlay">
+                                            <img src="~/img/health-care-package/@item.Image" alt="">
+                                            <div class="content-box">
+                                                <div class="icon-holder">
+                                                    <i class="fc-icon ftc-icon-dumbbell"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <p>@item.Title</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <a href="/package/detail/@item.Id">
+                                            <p>
+                                                7 Best shoulder exer-
+                                                <br>cised you’re not doing
+                                            </p>
+                                        </a>
+                                        <span>@DateTime.Now.ToString("dd MM yyy")</span>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- /.single-sidebar -->
+                </div>
+                <!-- /.sidebar-wrapper -->
+            </div>
+            <!-- /.col-md-3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.section-padding sidebar-pages -->
+@section Scripts{
+    <!--====== Shop-Area End ======-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+        var option = document.querySelectorAll("#select option")
+        var id = document.getElementById("getvalue").innerHTML
+        console.log(id)
+        for (i = 0; i <= option.length - 1; i++) {
+            if (option[i].value == id) {
+                option[i].setAttribute("selected", "true")
+            }
+        }
+        $(document).ready(function () {
+
+            $(document).on("change", "#select", function (e) {
+
+                var base = window.location.origin;
+                var url = `${base}/shop?sortId=${$(this).val()}`
+                window.location.replace(url)
+
+            })
+        })
+
+    </script>
+
+
+}

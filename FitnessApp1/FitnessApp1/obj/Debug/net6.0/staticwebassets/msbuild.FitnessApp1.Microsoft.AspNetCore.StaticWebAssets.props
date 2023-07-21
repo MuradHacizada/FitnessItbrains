@@ -11584,6 +11584,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\health-care-package\66.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\health-care-package\8abbb451-9e9b-4471-9f4f-f471d47289d9user.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/health-care-package/8abbb451-9e9b-4471-9f4f-f471d47289d9user.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\health-care-package\8abbb451-9e9b-4471-9f4f-f471d47289d9user.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\health-care-package\cbea4daf-624d-48fb-b301-07f38783e7d966.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13200,6 +13216,54 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\resources\walkinggg.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\0031f6ef-bc79-46a5-894f-509185a8055d9af394bb-3c2b-4609-a16d-1ba0cb46df80hardline5003.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/0031f6ef-bc79-46a5-894f-509185a8055d9af394bb-3c2b-4609-a16d-1ba0cb46df80hardline5003.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\0031f6ef-bc79-46a5-894f-509185a8055d9af394bb-3c2b-4609-a16d-1ba0cb46df80hardline5003.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\011a3938-907e-4bf9-9d9a-5fa8e3a32e49nainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/011a3938-907e-4bf9-9d9a-5fa8e3a32e49nainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\011a3938-907e-4bf9-9d9a-5fa8e3a32e49nainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\0183e21a-9c14-433c-ba1b-415d608895b5user.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/0183e21a-9c14-433c-ba1b-415d608895b5user.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\0183e21a-9c14-433c-ba1b-415d608895b5user.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\03087de6-998c-44e5-8063-74a413c1dd0dcurset.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13215,6 +13279,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\03087de6-998c-44e5-8063-74a413c1dd0dcurset.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\12de78e9-9479-4041-ae6f-d8fd9a6c301f5a9c8c09-037b-423b-b691-6ddacb86b686shop2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/12de78e9-9479-4041-ae6f-d8fd9a6c301f5a9c8c09-037b-423b-b691-6ddacb86b686shop2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\12de78e9-9479-4041-ae6f-d8fd9a6c301f5a9c8c09-037b-423b-b691-6ddacb86b686shop2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\199236cd-9f36-4532-a3ba-8701beed6196maiin-2.jpg))">
       <SourceType>Package</SourceType>
@@ -13232,6 +13312,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\199236cd-9f36-4532-a3ba-8701beed6196maiin-2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\1f95112f-5522-4203-86e6-7841cb6e8b7dnicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/1f95112f-5522-4203-86e6-7841cb6e8b7dnicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\1f95112f-5522-4203-86e6-7841cb6e8b7dnicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\200148a2-8d1c-4a40-a705-5a42135922c8nicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/200148a2-8d1c-4a40-a705-5a42135922c8nicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\200148a2-8d1c-4a40-a705-5a42135922c8nicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\214d0dd3-d3c3-40d7-a110-03a1b9b2a73akreatin5001.png))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13247,6 +13359,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\214d0dd3-d3c3-40d7-a110-03a1b9b2a73akreatin5001.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\37a29dc6-1b8d-4f11-9696-2589ce1317083e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/37a29dc6-1b8d-4f11-9696-2589ce1317083e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\37a29dc6-1b8d-4f11-9696-2589ce1317083e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))">
       <SourceType>Package</SourceType>
@@ -13280,6 +13408,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3c1667c4-1ad7-4932-9f95-bf0b336389dctestimonials-img1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/3c1667c4-1ad7-4932-9f95-bf0b336389dctestimonials-img1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3c1667c4-1ad7-4932-9f95-bf0b336389dctestimonials-img1.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13295,6 +13439,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3e98c85c-0599-41b1-a98f-38ccc6140b65pexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/3e98c85c-0599-41b1-a98f-38ccc6140b65pexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3e98c85c-0599-41b1-a98f-38ccc6140b65pexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3fef3197-9082-42db-b43b-01117bd5741fpexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/3fef3197-9082-42db-b43b-01117bd5741fpexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\3fef3197-9082-42db-b43b-01117bd5741fpexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\40ee4f17-3fc6-49bf-a0b9-473b1bc34a43curset4.jpg))">
       <SourceType>Package</SourceType>
@@ -13312,6 +13488,70 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\40ee4f17-3fc6-49bf-a0b9-473b1bc34a43curset4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\433f56fe-9300-4b60-8437-1a0d52f008e9user.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/433f56fe-9300-4b60-8437-1a0d52f008e9user.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\433f56fe-9300-4b60-8437-1a0d52f008e9user.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\51120694-6d6e-40ed-8f6e-631c92f5cdb5214d0dd3-d3c3-40d7-a110-03a1b9b2a73akreatin5001.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/51120694-6d6e-40ed-8f6e-631c92f5cdb5214d0dd3-d3c3-40d7-a110-03a1b9b2a73akreatin5001.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\51120694-6d6e-40ed-8f6e-631c92f5cdb5214d0dd3-d3c3-40d7-a110-03a1b9b2a73akreatin5001.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\54a0fc1e-41f0-46d7-8bab-0305fa8ed8803e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/54a0fc1e-41f0-46d7-8bab-0305fa8ed8803e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\54a0fc1e-41f0-46d7-8bab-0305fa8ed8803e395f79-6c5f-4b1a-805f-ac388eaa2727myprotein4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5a9c8c09-037b-423b-b691-6ddacb86b686shop2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13327,6 +13567,70 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5a9c8c09-037b-423b-b691-6ddacb86b686shop2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5c947714-f441-4f26-8370-88747b5ebc7bnicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/5c947714-f441-4f26-8370-88747b5ebc7bnicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5c947714-f441-4f26-8370-88747b5ebc7bnicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5c9f098e-7672-418c-b38c-f984033fa690edward-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/5c9f098e-7672-418c-b38c-f984033fa690edward-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\5c9f098e-7672-418c-b38c-f984033fa690edward-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\60fbb832-d8c9-4945-8647-7aaa64de9a40pexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/60fbb832-d8c9-4945-8647-7aaa64de9a40pexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\60fbb832-d8c9-4945-8647-7aaa64de9a40pexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\6785606f-b0f9-4ec9-a947-11e041fdc874testimonials-img1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/6785606f-b0f9-4ec9-a947-11e041fdc874testimonials-img1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\6785606f-b0f9-4ec9-a947-11e041fdc874testimonials-img1.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\6c71e2f9-6e95-4289-b4b7-26be6051ac03Murad.jpg))">
       <SourceType>Package</SourceType>
@@ -13408,6 +13712,54 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\7387e92f-3655-470d-bf32-70c7ed6904f1shop6.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\74944729-462a-4b11-b7ba-7a859fce930fnicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/74944729-462a-4b11-b7ba-7a859fce930fnicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\74944729-462a-4b11-b7ba-7a859fce930fnicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\7ac604fe-dfac-4634-bdb7-0fbd4adf4356nainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/7ac604fe-dfac-4634-bdb7-0fbd4adf4356nainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\7ac604fe-dfac-4634-bdb7-0fbd4adf4356nainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\86d899bb-b287-4c94-89c1-39004b82e23ed03027ad-a7b8-43de-b5bc-6edabf347a41home-bannerr-1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/86d899bb-b287-4c94-89c1-39004b82e23ed03027ad-a7b8-43de-b5bc-6edabf347a41home-bannerr-1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\86d899bb-b287-4c94-89c1-39004b82e23ed03027ad-a7b8-43de-b5bc-6edabf347a41home-bannerr-1.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\8b7e45c1-0158-4e57-b252-e91671c8c14eMyprotein1.png))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13439,6 +13791,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\8c406a31-6537-4da4-8707-ee6705d16167curset3.jp.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\8e127cbe-636d-4c1f-85a4-4fe30edc596cpexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/8e127cbe-636d-4c1f-85a4-4fe30edc596cpexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\8e127cbe-636d-4c1f-85a4-4fe30edc596cpexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\918313e3-4ba6-4058-b227-4942202e8114nainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/918313e3-4ba6-4058-b227-4942202e8114nainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\918313e3-4ba6-4058-b227-4942202e8114nainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\92f65698-10dd-4ef2-b57e-00519b35b94eRamiman.jpg))">
       <SourceType>Package</SourceType>
@@ -13488,6 +13872,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\9af394bb-3c2b-4609-a16d-1ba0cb46df80hardline5003.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\a2430f39-d3d9-4583-9c85-57b1630267e440ee4f17-3fc6-49bf-a0b9-473b1bc34a43curset4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/a2430f39-d3d9-4583-9c85-57b1630267e440ee4f17-3fc6-49bf-a0b9-473b1bc34a43curset4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\a2430f39-d3d9-4583-9c85-57b1630267e440ee4f17-3fc6-49bf-a0b9-473b1bc34a43curset4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\a98b9526-2a67-4973-ac7f-3e5667412da6testimonials-img1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/a98b9526-2a67-4973-ac7f-3e5667412da6testimonials-img1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\a98b9526-2a67-4973-ac7f-3e5667412da6testimonials-img1.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\acd76698-28a5-4a47-acf9-5f93e91d7df5home-offerr.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13504,6 +13920,102 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\acd76698-28a5-4a47-acf9-5f93e91d7df5home-offerr.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\ad34fbf5-76f7-4501-98cc-d7de18d07908pexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/ad34fbf5-76f7-4501-98cc-d7de18d07908pexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\ad34fbf5-76f7-4501-98cc-d7de18d07908pexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b337b129-0833-4344-a76e-d90d2b4058503a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/b337b129-0833-4344-a76e-d90d2b4058503a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b337b129-0833-4344-a76e-d90d2b4058503a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b8403017-c526-428f-9afe-85b69e461ffcpexels-alexander-suhorucov-6457579.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/b8403017-c526-428f-9afe-85b69e461ffcpexels-alexander-suhorucov-6457579.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b8403017-c526-428f-9afe-85b69e461ffcpexels-alexander-suhorucov-6457579.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b90a2a09-ae91-4af3-bfe3-b9afda971625testimonials-img1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/b90a2a09-ae91-4af3-bfe3-b9afda971625testimonials-img1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\b90a2a09-ae91-4af3-bfe3-b9afda971625testimonials-img1.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\ba50c277-60bc-4ec8-b83f-8e030b01fa413a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/ba50c277-60bc-4ec8-b83f-8e030b01fa413a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\ba50c277-60bc-4ec8-b83f-8e030b01fa413a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bb94448a-1862-4982-83ee-9c2f96235ba0nicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/bb94448a-1862-4982-83ee-9c2f96235ba0nicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bb94448a-1862-4982-83ee-9c2f96235ba0nicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bc41686d-eec1-46b5-9465-4ced9be21fa3home-bannerr-2.png))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13519,6 +14031,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bc41686d-eec1-46b5-9465-4ced9be21fa3home-bannerr-2.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bccfb18f-241a-4b1e-82de-e9c0e079a12a3a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/bccfb18f-241a-4b1e-82de-e9c0e079a12a3a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bccfb18f-241a-4b1e-82de-e9c0e079a12a3a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bdf233a7-b849-4102-847f-405a9bd6e2d0nainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/bdf233a7-b849-4102-847f-405a9bd6e2d0nainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bdf233a7-b849-4102-847f-405a9bd6e2d0nainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\bfc47381-5b81-444c-9e92-e39380b668a0maiin-3.jpg))">
       <SourceType>Package</SourceType>
@@ -13584,6 +14128,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\c81068f5-25a2-4119-ad27-906f3f17950amyprotein3.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\c9e5ffbd-661e-4ff6-a374-e6002db58702nicholas-green-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/c9e5ffbd-661e-4ff6-a374-e6002db58702nicholas-green-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\c9e5ffbd-661e-4ff6-a374-e6002db58702nicholas-green-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\cd0fcc4c-d4f7-465b-b3fc-dc69d121ae6dblog7.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -13615,6 +14175,134 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d03027ad-a7b8-43de-b5bc-6edabf347a41home-bannerr-1.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d1a6aad2-fc20-498e-af67-0a39bcf45bfdnainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/d1a6aad2-fc20-498e-af67-0a39bcf45bfdnainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d1a6aad2-fc20-498e-af67-0a39bcf45bfdnainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d33c23cd-0a88-4c5a-ad3f-90c64fc03d41nainoa-shizuru-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/d33c23cd-0a88-4c5a-ad3f-90c64fc03d41nainoa-shizuru-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d33c23cd-0a88-4c5a-ad3f-90c64fc03d41nainoa-shizuru-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d747f535-ecac-46c5-a819-a51d53706f35edward-unsplash-blur.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/d747f535-ecac-46c5-a819-a51d53706f35edward-unsplash-blur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\d747f535-ecac-46c5-a819-a51d53706f35edward-unsplash-blur.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\dc434dce-a46f-4269-bb37-22d66cb035b6c81068f5-25a2-4119-ad27-906f3f17950amyprotein3.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/dc434dce-a46f-4269-bb37-22d66cb035b6c81068f5-25a2-4119-ad27-906f3f17950amyprotein3.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\dc434dce-a46f-4269-bb37-22d66cb035b6c81068f5-25a2-4119-ad27-906f3f17950amyprotein3.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e508a1b6-17fb-432e-9e76-a20a1710872dtestimonials-img1.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/e508a1b6-17fb-432e-9e76-a20a1710872dtestimonials-img1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e508a1b6-17fb-432e-9e76-a20a1710872dtestimonials-img1.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e99c21f9-eda4-4a89-9ec0-d861440dda8d3a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/e99c21f9-eda4-4a89-9ec0-d861440dda8d3a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e99c21f9-eda4-4a89-9ec0-d861440dda8d3a1fcb97-1971-419b-94be-ce3054e13fdcmyprotein2.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e9ae74c9-6ec6-4031-8c31-e706751f853d4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/e9ae74c9-6ec6-4031-8c31-e706751f853d4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\e9ae74c9-6ec6-4031-8c31-e706751f853d4e6403fb-67a3-4d35-9aad-f2092269b8acuser.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\f43189d9-cdab-4a16-ba6a-4de5d2a0f8743a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/shop/f43189d9-cdab-4a16-ba6a-4de5d2a0f8743a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\f43189d9-cdab-4a16-ba6a-4de5d2a0f8743a10f272-dd53-4211-81e4-9b0fd1ea6164shop1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\shop\fe6fc968-bcbe-4943-86bd-a16c67e4fc4fshop5.jpg))">
       <SourceType>Package</SourceType>
@@ -17280,6 +17968,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\testimonials\2.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\user.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>img/user.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\user.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\video-gallery\maiin-1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FitnessApp1</SourceId>
@@ -17567,6 +18271,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\MailTemplate\OrderMessage.html))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\MailTemplate\Product.html))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>MailTemplate/Product.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\MailTemplate\Product.html))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\MailTemplate\Trainer.html))">
+      <SourceType>Package</SourceType>
+      <SourceId>FitnessApp1</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FitnessApp1</BasePath>
+      <RelativePath>MailTemplate/Trainer.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\MailTemplate\Trainer.html))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\templates\verify.html))">
       <SourceType>Package</SourceType>

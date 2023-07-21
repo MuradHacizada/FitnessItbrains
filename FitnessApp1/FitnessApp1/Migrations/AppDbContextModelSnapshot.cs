@@ -45,6 +45,9 @@ namespace FitnessApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsRememberMe")
                         .HasColumnType("bit");
 
@@ -243,6 +246,36 @@ namespace FitnessApp1.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("FitnessApp1.Models.Change", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ChangedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TrainerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainerId");
+
+                    b.ToTable("Changes");
+                });
+
             modelBuilder.Entity("FitnessApp1.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -332,6 +365,44 @@ namespace FitnessApp1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Discounts");
+                });
+
+            modelBuilder.Entity("FitnessApp1.Models.Fee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ChangedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fees");
+                });
+
+            modelBuilder.Entity("FitnessApp1.Models.İncome", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ChangedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("İncomes");
                 });
 
             modelBuilder.Entity("FitnessApp1.Models.Order", b =>
@@ -572,10 +643,10 @@ namespace FitnessApp1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -610,6 +681,22 @@ namespace FitnessApp1.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("FitnessApp1.Models.Revenue", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Totals")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Revenue");
                 });
 
             modelBuilder.Entity("FitnessApp1.Models.Service", b =>
@@ -730,6 +817,9 @@ namespace FitnessApp1.Migrations
 
                     b.Property<int?>("PositionId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -925,6 +1015,15 @@ namespace FitnessApp1.Migrations
                     b.Navigation("Comment");
                 });
 
+            modelBuilder.Entity("FitnessApp1.Models.Change", b =>
+                {
+                    b.HasOne("FitnessApp1.Models.Trainer", "Trainer")
+                        .WithMany()
+                        .HasForeignKey("TrainerId");
+
+                    b.Navigation("Trainer");
+                });
+
             modelBuilder.Entity("FitnessApp1.Models.Comment", b =>
                 {
                     b.HasOne("FitnessApp1.Models.AppUser", "AppUser")
@@ -1037,15 +1136,11 @@ namespace FitnessApp1.Migrations
                 {
                     b.HasOne("FitnessApp1.Models.Category", "Category")
                         .WithMany("ProductCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("FitnessApp1.Models.Product", "Product")
                         .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Category");
 

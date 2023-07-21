@@ -1,15 +1,19 @@
 ﻿using FitnessApp1.DAL;
 using FitnessApp1.Models;
 using FitnessApp1.Utilities.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FitnessApp1.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Moderator,Admin")]
+
     public class PackageController : Controller
     {
-        
+
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
         public PackageController(AppDbContext context, IWebHostEnvironment env)
@@ -19,7 +23,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Package> packages =await _context.Packages.ToListAsync(); 
+            List<Package> packages = await _context.Packages.ToListAsync();
             return View(packages);
         }
         public IActionResult Create()
@@ -32,6 +36,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Package package)
         {
+
             ViewBag.Tags = _context.Tags.ToList();
             ViewBag.Trainers = _context.Trainers.ToList();
             bool isExist = await _context.Packages.AnyAsync(x => x.Title == package.Title);
@@ -39,10 +44,10 @@ namespace FitnessApp1.Areas.Manage.Controllers
             {
                 ModelState.AddModelError("Title", "This Title is already Exist");
             }
-            if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
-            {
-                return View();
-            }
+            //if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+            //{
+            //    return View();
+            //}
 
             if (!package.Photo.CheckFileType("/image"))
             {
@@ -53,10 +58,18 @@ namespace FitnessApp1.Areas.Manage.Controllers
             {
                 ModelState.AddModelError("Photo", "Sekil 20 mb-dan boyuk ola bilmez");
             }
+            if (package.Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Sekil Formati secin");
+                return View();
+            }
+            else
+            {
 
 
-            string filename = await package.Photo.CreateFileAsync(_env.WebRootPath, "img/health-care-package");
-            package.Image = filename;
+                string filename = await package.Photo.CreateFileAsync(_env.WebRootPath, "img/health-care-package");
+                package.Image = filename;
+            }
             package.PackageTags = new List<PackageTag>();
             if (package.TagIds != null)
             {
@@ -87,6 +100,8 @@ namespace FitnessApp1.Areas.Manage.Controllers
             _context.Packages.AddAsync(package);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
+
         }
 
 
@@ -99,7 +114,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
             ViewBag.Tags = _context.Tags.ToList();
             ViewBag.Trainers = _context.Trainers.ToList();
 
-            Package b = _context.Packages.Include(x => x.PackageTrainers).ThenInclude(x => x.Trainer).Include(x => x.PackageTags).ThenInclude(p=>p.Tag).FirstOrDefault(x => x.Id == id);
+            Package b = _context.Packages.Include(x => x.PackageTrainers).ThenInclude(x => x.Trainer).Include(x => x.PackageTags).ThenInclude(p => p.Tag).FirstOrDefault(x => x.Id == id);
             if (b == null)
             {
                 return NotFound();
@@ -126,7 +141,7 @@ namespace FitnessApp1.Areas.Manage.Controllers
 
             #region MyRegion
             Package dbPackage = await _context.Packages.Include(x => x.PackageTrainers).ThenInclude(x => x.Trainer).Include(x => x.PackageTags).ThenInclude(p => p.Tag).FirstOrDefaultAsync(b => b.Id == package.Id);
-           
+
 
             var existTags = _context.PackageTags.Where(x => x.PackageId == package.Id).ToList();
             if (package.TagIds != null)

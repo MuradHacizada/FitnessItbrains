@@ -1,0 +1,26 @@
+﻿@model Trainer
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<div class="container ">
+    <div class="row justify-content-center" style="padding-top: 20%;">
+
+
+        <form method="post" class="form-inline">
+       
+                <input type="hidden" value="@Model.Id"name="id" cols="60" rows="10" />
+            
+            <div class="form-group mx-sm-3 mb-2">
+                <input class="Message form-control" type="text" name="message" placeholder="Message" cols="60" rows="10" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input class="form-control salary" type="number" placeholder="Salary" name="salary" />
+            </div>
+            <button type="submit" class="accept btn btn-success btn-icon-text">Submit</button>
+        </form> 
+    </div>
+</div>

@@ -8,6 +8,7 @@ using System.Data;
 namespace FitnessApp1.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Moderator,Admin")]
 
     public class TagController : Controller
     {

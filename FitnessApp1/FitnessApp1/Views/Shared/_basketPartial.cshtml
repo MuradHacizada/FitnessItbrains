@@ -1,92 +1,199 @@
 ﻿@inject FitnessApp1.Services.LayoutService layoutService
 @{
     BasketVM basket = await layoutService.ShowBasket();
-
-    }
-    <li class="shopping-cart">
+    int? star = 0;
+}
+<li class="shopping-cart">
     <a href="/basket/index"><i class="fc-icon ftc-icon-shopping-bag2"> <span class="cart-item">@basket.Count</span></i> <span class="text">Cart (@basket.Count)</span></a>
-        <div class="megamenu shopping-cart-box">
-            <ul class="header-cart-box">
-                
-                @foreach (var item in layoutService.ShowBasket().Result.BasketItems)
-                {
+    <div class="megamenu shopping-cart-box">
+        <ul class="header-cart-box">
 
-                    <li>
-                        <div class="img-box">
-                            @foreach (var img in item.Product.ProductImages)
+            @foreach (var item in layoutService.ShowBasket().Result.BasketItems.Where(b => b.Product != null))
+            {
+
+                <li>
+                    <div class="img-box">
+                        @foreach (var img in item.Product.ProductImages)
+                        {
+                            @if (img.IsMain)
                             {
-                                @if (img.IsMain)
-                                {
 
-                                    <img src="~/img/shop/@img.ImageUrl" width="50px" alt="Awesome Image" />
+                                <img src="~/img/shop/@img.ImageUrl" width="50px" alt="Awesome Image" />
+                            }
+                        }
+                    </div>
+                    <div class="text-box">
+                        <a href="#"><h3>@item.Product.Name</h3></a>
+                        @if (item.Product.DiscountId == null)
+                        {
+
+                            <span class="price">$ @item.Product.Price x @item.Count</span>
+                        }
+                        else
+                        {
+                            <span class="price">
+                                $
+                                @(item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100) x @item.Count
+                            </span>
+
+                        }
+                        <span style="display:none;">
+                            @{
+                                foreach (var ite in item.Product.Comments.Where(c => c.Star != null))
+                                {
+                                    star += ite.Star;
+                                }
+                                if (star > 0 && item.Product.Comments.Count()>0)
+                                {
+                                    star = star / item.Product.Comments.Count();
+
+                                }else
+                                {
+                                    star = 5;
                                 }
                             }
+                        </span>
+
+                        <div class="review-box">
+                            @if ((int)star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            else if ((int)star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            else if ((int)star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            else if ((int)star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            else if ((int)star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
                         </div>
-                        <div class="text-box">
-                            <a href="#"><h3>@item.Product.Name</h3></a>
-                            @if (item.Product.DiscountId==null)
-                        {
-                            
-                            <span class="price">$ @item.Product.Price x @item.Count</span>
-                        }else
-                        {
-                            <span class="price">$
-                                @(item.Product.Price * (100 - item.Product.Discount.DiscountPercent) / 100) x @item.Count</span>
-
-                        }
-
-
-                            <div class="review-box">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
                         <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Product.Id" class="remove-box removeb"><i class="fa fa-times-circle"></i></a>
-                        </div>
-                    </li>
-                }
-                <li class="clearfix cart-bottom">
-                    <div class="total-text pull-left">
-                    <span>Total - $@basket.TotalPrice</span>
-                    </div>
-                    <div class="checkout-btn pull-right">
-                        <a href="/basket/checkout" class="flip-flop-btn"><span data-hover="Checkout">Checkout<i class="fa fa-caret-right"></i></span></a>
                     </div>
                 </li>
-            </ul>
-        </div>
-    </li>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(".removeb").click(function (e) {
-            e.preventDefault()
-            console.log($(this).attr("href"))
-            Swal.fire({
-                title: 'Əminsiniz?',
-                text: "Bunun geri dönüşü yoxdur!",
-                icon: 'Xəbərdarlıq',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Bəli sil!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    var link = $(this).attr("href");
-                    fetch(link).then(response => response.json()).then(data => {
-                        if (data.status == 200) {
-                            location.reload(true)
-                        } else {
-                            Swal.fire(
-                                'Tapılmadı!',
-                                'Fayl silinmiş ola bilər.',
-                                'Uğursuz cəhd'
-                            )
+            }
+            @foreach (var item in layoutService.ShowBasket().Result.BasketItems.Where(b => b.Package != null && b.Product == null))
+            {
+                <li>
+                    <div class="img-box">
+                        <img src="~/img/health-care-package/@item.Package.Image" width="50px" alt="Awesome Image" />
+                    </div>
+                    <div class="text-box">
+                        <a href="#"><h3>@item.Package.Title</h3></a>
+                        @if (item.PackagePrice == 1)
+                        {
+                            <span class="price">$ @item.Package.Price x @item.Count</span>
                         }
-                    });
-                }
-            })
+                        else if (item.PackagePrice == 2)
+                        {
+                            <span class="price">$ @item.Package.PriceYear x @item.Count</span>
+                        }
+                        else if (item.PackagePrice == 3)
+                        {
+                            <span class="price">$ @item.Package.PriceLife x @item.Count</span>
+                        }
+
+                        <a asp-controller="basket" asp-action="removepackage" asp-route-id="@item.Package.Id" class="remove-box removep"><i class="fa fa-times-circle"></i></a>
+                    </div>
+                </li>
+            }
+            <li class="clearfix cart-bottom">
+                <div class="total-text pull-left">
+                    <span>Total - $@basket.TotalPrice</span>
+                </div>
+                <div class="checkout-btn pull-right">
+                    <a href="/basket/checkout" class="flip-flop-btn"><span data-hover="Checkout">Checkout<i class="fa fa-caret-right"></i></span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</li>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(".removeb").click(function (e) {
+        e.preventDefault()
+        console.log($(this).attr("href"))
+        Swal.fire({
+            title: 'Əminsiniz?',
+            text: "Bunun geri dönüşü yoxdur!",
+            icon: 'Xəbərdarlıq',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli sil!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr("href");
+                fetch(link).then(response => response.json()).then(data => {
+                    if (data.status == 200) {
+                        location.reload(true)
+                    } else {
+                        Swal.fire(
+                            'Tapılmadı!',
+                            'Fayl silinmiş ola bilər.',
+                            'Uğursuz cəhd'
+                        )
+                    }
+                });
+            }
         })
-    </script>
+    })
+
+</script>
+<script>
+    $(".removep").click(function (e) {
+        e.preventDefault()
+        console.log($(this).attr("href"))
+        Swal.fire({
+            title: 'Əminsiniz?',
+            text: "Bunun geri dönüşü yoxdur!",
+            icon: 'Xəbərdarlıq',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Bəli sil!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr("href");
+                fetch(link).then(response => response.json()).then(data => {
+                    if (data.status == 200) {
+                        location.reload(true)
+                    } else {
+                        Swal.fire(
+                            'Tapılmadı!',
+                            'Fayl silinmiş ola bilər.',
+                            'Uğursuz cəhd'
+                        )
+                    }
+                });
+            }
+        })
+    })
+</script>

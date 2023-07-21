@@ -10,7 +10,11 @@ namespace FitnessApp1.DAL
         {
 
         }
+        public DbSet<İncome> İncomes { get; set; }
+        public DbSet<Fee> Fees { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Revenue> Revenue { get; set; }
+        public DbSet<Change> Changes { get; set; }
         public DbSet<PackageTrainer> PackageTrainers { get; set; }
         public DbSet<Slider>Sliders { get; set; }
         public DbSet<Category> Categories { get; set; }

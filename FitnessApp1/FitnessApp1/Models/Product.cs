@@ -14,11 +14,11 @@ namespace FitnessApp1.Models
         [NotMapped]
         public List<IFormFile> Photo { get; set; }
         public List<ProductImage> ProductImages { get; set; }
-        public ICollection<ProductCategory> ProductCategories { get; set; }
+        public ICollection<ProductCategory>? ProductCategories { get; set; }
         [NotMapped]
-        public List<int> CategoryIds { get; set; }
+        public List<int>? CategoryIds { get; set; }
         public List<Comment> Comments { get; set; }
         public int? DiscountId { get; set; }
-        public Discount Discount { get; set; }
+        public Discount? Discount { get; set; }
     }
 }
